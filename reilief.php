@@ -1,3 +1,9 @@
+<?php
+
+include 'database.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +18,7 @@
 
 
 
-    <form action="/action_page.php">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 
         <h2>Flood Reilief Requests</h2>
 
@@ -43,7 +49,7 @@
         <input type="text" id="address" name="address" placeholder="Your address..">
 
         <label for="no_of_members">Number of Family Members</label>
-        <input type="text" id="no_of_members" name="no_of_members" placeholder="Number of family members..">
+        <input type="text" id="no_ofmembers" name="no_ofmembers" placeholder="Number of family members..">
 
         <label for="sev_level">Flood severity level</label>
         <select id="sev_level" name="sev_level">
@@ -52,9 +58,48 @@
             <option value="high">High</option>
         </select>
 
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" placeholder="Description..">
+
+
         <input type="submit" value="Submit">
     </form>
 
 </body>
 
 </html>
+
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $type = $_POST['type'];
+    $district = $_POST['district'];
+    $ds_div = $_POST['ds_div'];
+    $gn_div = $_POST['gn_div'];
+    $name = $_POST['name'];
+    $telephone = $_POST['telephone'];
+    $address = $_POST['address'];
+    $no_ofmembers = $_POST['no_ofmembers'];
+    $sev_level = $_POST['sev_level'];
+    $description = $_POST['description'];
+
+    if (empty($type) || empty($district) || empty($ds_div) || empty($gn_div) || empty($name) || empty($telephone) || empty($address) || empty($no_ofmembers) || empty($sev_level) || empty($description)) {
+        echo "<script>alert('All fields are required.');</script>";
+        exit;
+
+    }
+
+    else { 
+        $sql = "INSERT INTO requests (type, district, ds_div, gn_div, name, telephone, address, no_ofmembers, sev_level, description) VALUES ('$type', '$district', '$ds_div', '$gn_div', '$name', '$telephone', '$address', '$no_ofmembers', '$sev_level', '$description')";
+
+        mysqli_query($conn, $sql);
+        echo "<script>alert('Request submitted successfully.');</script>";
+    
+
+    mysqli_close($conn);
+
+    }
+
+}
+?>
