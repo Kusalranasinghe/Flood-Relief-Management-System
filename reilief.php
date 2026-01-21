@@ -49,7 +49,7 @@ include 'database.php';
         <input type="text" id="address" name="address" placeholder="Your address..">
 
         <label for="no_of_members">Number of Family Members</label>
-        <input type="text" id="no_ofmembers" name="no_ofmembers" placeholder="Number of family members..">
+        <input type="text" id="no_of_members" name="no_of_members" placeholder="Number of family members..">
 
         <label for="sev_level">Flood severity level</label>
         <select id="sev_level" name="sev_level">
@@ -80,18 +80,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $telephone = $_POST['telephone'];
     $address = $_POST['address'];
-    $no_ofmembers = $_POST['no_ofmembers'];
+    $no_of_members = $_POST['no_of_members'];
     $sev_level = $_POST['sev_level'];
     $description = $_POST['description'];
 
-    if (empty($type) || empty($district) || empty($ds_div) || empty($gn_div) || empty($name) || empty($telephone) || empty($address) || empty($no_ofmembers) || empty($sev_level) || empty($description)) {
+    if (empty($type) || empty($district) || empty($ds_div) || empty($gn_div) || empty($name) || empty($telephone) || empty($address) || empty($no_of_members) || empty($sev_level) || empty($description)) {
         echo "<script>alert('All fields are required.');</script>";
         exit;
 
     }
 
     else { 
-        $sql = "INSERT INTO requests (type, district, ds_div, gn_div, name, telephone, address, no_ofmembers, sev_level, description) VALUES ('$type', '$district', '$ds_div', '$gn_div', '$name', '$telephone', '$address', '$no_ofmembers', '$sev_level', '$description')";
+        $sql = "INSERT INTO requests (type, district, ds_div, gn_div, name, telephone, address, no_of_fmembers, sev_level, description) VALUES ('$type', '$district', '$ds_div', '$gn_div', '$name', '$telephone', '$address', '$no_of_members', '$sev_level', '$description')";
 
         mysqli_query($conn, $sql);
         echo "<script>alert('Request submitted successfully.');</script>";
