@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else { 
         $sql = "INSERT INTO requests (type, district, ds_div, gn_div, name, telephone, address, no_of_fmembers, sev_level, description) VALUES ('$type', '$district', '$ds_div', '$gn_div', '$name', '$telephone', '$address', '$no_of_members', '$sev_level', '$description')";
 
-        mysqli_query($conn, $sql);
+        mysqli_query($conn, $sql );
         echo "<script>alert('Request submitted successfully.');</script>";
     
 
