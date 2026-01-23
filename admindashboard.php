@@ -19,47 +19,105 @@ include 'database.php';
     <h1>Admin Dashboard</h1>
     <p>Welcome to the admin dashboard. Here you can manage flood relief requests and view statistics.</p>
 
-   <div class="row">
-    <div class="col-sm-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Total Registered Users</h5>
-                <h1 id="reg_users">00</h1>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Registered Users</h5>
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) AS total_users FROM users";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+
+                    ?>
+
+                    <h1 id="reg_users"><?php echo $row['total_users']; ?></h1>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">High Severity Households</h5>
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) AS house_request FROM requests WHERE type = 'shelter'";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+
+                    ?>
+
+                    <h1 id="house_req"><?php echo $row['house_request']; ?></h1>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Water Requests</h5>
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) AS water_request FROM requests WHERE type = 'water'";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+
+                    ?>
+
+                    <h1 id="water_req"><?php echo $row['water_request']; ?></h1>
+
                 
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Food Requests</h5>
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) AS food_request FROM requests WHERE type = 'food'";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+
+                    ?>
+
+                    <h1 id="food_req"><?php echo $row['food_request']; ?></h1>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Medicine Requests</h5>
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) AS med_request FROM requests WHERE type = 'medicine'";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+
+                    ?>
+
+                    <h1 id="med_req"><?php echo $row['med_request']; ?></h1>
+
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="col-sm-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">High Severity Households</h5>
-                <h1 id="high_sev">00</h1>
-            
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Food Requests</h5>
-                <h1 id="food_req">00</h1>
-                
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Medicine Requests</h5>
-                <h1 id="med_req">00</h1>
-                
-            </div>
-        </div>
-    </div>
-</div>
+    <button><a href="requestdashboard.php">View Requests</a></button>
 
 </body>
 
