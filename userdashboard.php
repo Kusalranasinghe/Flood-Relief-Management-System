@@ -62,6 +62,7 @@ $user_id = $_SESSION['user_id'];
 
 
     <button><a href="reilief.php">Relief Request</a></button>
+    <a href="logout.php" class="btn btn-danger">Logout</a>
 
 
 

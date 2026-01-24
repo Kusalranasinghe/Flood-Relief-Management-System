@@ -13,6 +13,11 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
       
     }
 
+    if ($action == 'update') {
+        header("Location: update_request.php?id=$id");
+        exit;
+    }
+
    mysqli_close($conn);
 }
 
