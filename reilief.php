@@ -22,6 +22,9 @@ include 'database.php';
 
         <h2>Flood Reilief Requests</h2>
 
+        <label for="u_id">User ID</label>
+        <input type="text" id="u_id" name="u_id" placeholder="Your user id..">
+
         <label for="type">Type of Reilief </label>
         <select id="type" name="type">
             <option value="food">Food</option>
@@ -73,6 +76,7 @@ include 'database.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    $u_id = $_POST['u_id'];
     $type = $_POST['type'];
     $district = $_POST['district'];
     $ds_div = $_POST['ds_div'];
@@ -84,14 +88,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sev_level = $_POST['sev_level'];
     $description = $_POST['description'];
 
-    if (empty($type) || empty($district) || empty($ds_div) || empty($gn_div) || empty($name) || empty($telephone) || empty($address) || empty($no_of_members) || empty($sev_level) || empty($description)) {
+    if (empty($u_id) || empty($type) || empty($district) || empty($ds_div) || empty($gn_div) || empty($name) || empty($telephone) || empty($address) || empty($no_of_members) || empty($sev_level) || empty($description)) {
         echo "<script>alert('All fields are required.');</script>";
         exit;
 
     }
 
     else { 
-        $sql = "INSERT INTO requests (type, district, ds_div, gn_div, name, telephone, address, no_of_fmembers, sev_level, description) VALUES ('$type', '$district', '$ds_div', '$gn_div', '$name', '$telephone', '$address', '$no_of_members', '$sev_level', '$description')";
+        $sql = "INSERT INTO requests (user_id, type, district, ds_div, gn_div, name, telephone, address, no_of_fmembers, sev_level, description) VALUES ('$u_id', '$type', '$district', '$ds_div', '$gn_div', '$name', '$telephone', '$address', '$no_of_members', '$sev_level', '$description')";
 
         mysqli_query($conn, $sql );
         echo "<script>
@@ -105,4 +109,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 }
+
 ?>

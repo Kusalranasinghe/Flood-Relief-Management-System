@@ -73,7 +73,7 @@ include 'database.php';
 
                     <h1 id="water_req"><?php echo $row['water_request']; ?></h1>
 
-                
+
                 </div>
             </div>
         </div>
@@ -118,6 +118,8 @@ include 'database.php';
     </div>
 
     <button><a href="requestdashboard.php">View Requests</a></button>
+    <button><a href="viewusers.php">View All Users</a></button>
+
 
 </body>
 
