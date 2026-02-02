@@ -16,7 +16,9 @@ if (!isset($_GET['id'])) {
 $user_id = $_SESSION['user_id'];
 $request_id = $_GET['id'];
 
-$sql = "SELECT * FROM requests WHERE id='$request_id' AND user_id='$user_id'";
+$sql = "SELECT * FROM requests 
+        WHERE id='$request_id' AND user_id='$user_id'";
+        
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) != 1) {
