@@ -2,10 +2,6 @@
 
 include 'database.php';
 
-
-
-
-
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
@@ -13,6 +9,7 @@ if (isset($_GET['id'])) {
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
 }
+
 ?>
 
 <!DOCTYPE html>
