@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_query($conn, $sql);
         echo "<script>
         alert('Registration successful.');
-        window.location.href='userdashboard.php';
+        window.location.href='userlogin.php';
       </script>";
         exit;
     }
