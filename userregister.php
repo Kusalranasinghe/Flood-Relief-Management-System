@@ -33,6 +33,9 @@ include 'database.php';
         <label>Address</label>
         <input type="text" id="address" name="address" class="form-control mb-2">
 
+        <label>District</label>
+        <input type="text" id="district" name="district" class="form-control mb-2">
+
         <label>Contact Number</label>
         <input type="text" id="telephone" name="telephone" class="form-control mb-2">
 
@@ -58,14 +61,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address = $_POST['address'];
     $telephone = $_POST['telephone'];
     $email = $_POST['email'];
+    $district = $_POST['district'];
     $password = $_POST['password'];
 
-    if (empty($name) || empty($nic) || empty($address) || empty($telephone) || empty($email) || empty($password)) {
+    if (empty($name) || empty($nic) || empty($address) || empty($telephone) || empty($email) || empty($district) || empty($password)) {
         echo "<script>alert('All fields are required.');</script>";
         exit;
 
     } else {
-        $sql = "INSERT INTO users (name, nic, address, telephone, email, password) VALUES ('$name', '$nic', '$address', '$telephone', '$email', '$password')";
+        $sql = "INSERT INTO users (name, nic, address, telephone, email, district, password) VALUES ('$name', '$nic', '$address', '$telephone', '$email', '$district', '$password')";
 
         mysqli_query($conn, $sql);
         echo "<script>
