@@ -119,6 +119,8 @@ include 'database.php';
 
     <button><a href="requestdashboard.php">View Requests</a></button>
     <button><a href="viewusers.php">View All Users</a></button>
+    <button><a href="sumlocations.php">View All Locations</a></button>
+
     <a href="logout.php" class="btn btn-danger">Logout</a>
 
 
