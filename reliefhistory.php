@@ -16,6 +16,9 @@ include 'database.php';
 </head>
 
 <body>
+
+    <h3>Relief Requests History</h3>
+
     <table class="table table-bordered table-striped text-center">
         <thead class="table-dark">
             <tr>
