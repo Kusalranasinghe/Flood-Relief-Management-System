@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     else { 
-        $sql = "INSERT INTO requests (user_id, type, district, ds_div, gn_div, name, telephone, address, no_of_fmembers, sev_level, description) VALUES ('$u_id', '$type', '$district', '$ds_div', '$gn_div', '$name', '$telephone', '$address', '$no_of_members', '$sev_level', '$description')";
+        $sql = "INSERT INTO requests (user_id, type, district, ds_div, gn_div, name, telephone, address, no_of_fmembers, sev_level, description, status) VALUES ('$u_id', '$type', '$district', '$ds_div', '$gn_div', '$name', '$telephone', '$address', '$no_of_members', '$sev_level', '$description', 'pending')";
 
         mysqli_query($conn, $sql );
         echo "<script>
