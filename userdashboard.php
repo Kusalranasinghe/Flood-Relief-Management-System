@@ -22,6 +22,8 @@ $user_id = $_SESSION['user_id'];
 <body>
 
     <h3>Welcome <?php echo $_SESSION['user_name']; ?></h3>
+    <h5>User ID : <?php echo $_SESSION['user_id']; ?></h5>
+
 
     <table class="table table-bordered table-striped text-center">
         <thead class="table-dark">
