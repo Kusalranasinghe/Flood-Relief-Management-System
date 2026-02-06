@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2026 at 04:58 PM
+-- Generation Time: Feb 06, 2026 at 11:06 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -58,16 +58,27 @@ CREATE TABLE `requests` (
   `no_of_fmembers` int(10) NOT NULL,
   `sev_level` varchar(20) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `req_date` date NOT NULL DEFAULT current_timestamp()
+  `req_date` date NOT NULL DEFAULT current_timestamp(),
+  `user_id` int(20) NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`id`, `type`, `district`, `ds_div`, `gn_div`, `name`, `telephone`, `address`, `no_of_fmembers`, `sev_level`, `description`, `req_date`) VALUES
-(2, 'medicine', 'kalutara', 'dodangoda', '800-d', 'disal', '222', 'kalutara', 10, 'high', 'test2', '2026-01-23'),
-(3, 'food', 'colombo', 'rathmalana', '800-d', 'tharusha', '07899999999', 'kalutara', 10, 'medium', 'test3', '2026-01-23');
+INSERT INTO `requests` (`id`, `type`, `district`, `ds_div`, `gn_div`, `name`, `telephone`, `address`, `no_of_fmembers`, `sev_level`, `description`, `req_date`, `user_id`, `status`) VALUES
+(2, 'medicine', 'kalutara', 'dodangoda', '800-d', 'disal', '222', 'kalutara', 10, 'high', 'test2', '2026-01-23', 0, 'accepted'),
+(3, 'food', 'colombo', 'rathmalana', '800-d', 'tharusha', '07899999999', 'kalutara', 10, 'medium', 'test3', '2026-01-23', 0, ''),
+(4, 'shelter', 'colombo', 'rathmalana', '800-d', 'disal', '07899999999', 'kalutara', 20, 'low', 'test', '2026-01-23', 0, ''),
+(5, 'shelter', 'colombo', 'rathmalana', '800-d', 'disal', '07899999999', 'kalutara', 20, 'low', 'test', '2026-01-23', 0, ''),
+(10, 'medical', 'kalutara', 'nagoda', '800-d', 'disal', '0778767787', 'galle', 10, 'High', 'test1', '2026-01-24', 1, ''),
+(11, 'shelter', 'kalutara', 'nagoda', '800-d', 'nimal', '0345434543', 'matara', 10, 'Medium', 'test1', '2026-01-24', 1, ''),
+(12, 'food', 'kandy', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'kalutara', 10, 'high', 'test1', '2026-02-06', 2, 'accepted'),
+(13, 'food', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0787996831', 'matara', 10, 'low', 'test1', '2026-02-06', 2, 'accepted'),
+(14, 'food', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0778767787', 'kalutara', 10, 'low', 'test1', '2026-02-06', 9, 'accepted'),
+(15, 'food', 'Gampaha', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'jjj', 10, 'High', 'test1', '2026-02-06', 9, 'pending'),
+(16, 'food', 'galle', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'galle', 10, 'low', 'test1', '2026-02-06', 2, 'pending');
 
 -- --------------------------------------------------------
 
@@ -95,7 +106,11 @@ INSERT INTO `users` (`id`, `name`, `nic`, `email`, `telephone`, `address`, `dist
 (1, 'kusal', '2222', 'd', 'wswdw', 'ws', 'ss', 'ss', '2026-01-14'),
 (3, 'disal', '1111', 'kusal@gmail.com', '07899999999', 'kalutara', '', '111', '2026-01-23'),
 (4, 'disal', '1111', 'kusal@gmail.com', '07899999999', 'kalutara', '', '111', '2026-01-23'),
-(5, 'dasun', '1111', 'kusal@gmail.com', '07899999999', 'kalutara', '', '111', '2026-01-23');
+(5, 'dasun', '1111', 'kusal@gmail.com', '07899999999', 'kalutara', '', '111', '2026-01-23'),
+(6, 'dinul', '201831811106', 'd@gmail.com', '0987654321', 'kalutara', '', '111', '2026-02-03'),
+(7, 'maleesa', '201831811106', 'm@gmail.com', '0787996831', 'matara', '', '123', '2026-02-03'),
+(8, 'sadun', '201831811106', 's@gmail.com', '0778767787', 'kandy', 'kandy', 'sss', '2026-02-05'),
+(9, 'Kusal D Ranasinghe', '201831811106', 'p@gmail.com', '0778767787', 'kalutara', 'kalutara', '111', '2026-02-06');
 
 --
 -- Indexes for dumped tables
@@ -133,13 +148,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
