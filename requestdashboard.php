@@ -34,7 +34,7 @@ include 'database.php';
 
             <?php
 
-            $sql = "SELECT * FROM requests";
+            $sql = "SELECT * FROM requests WHERE status='pending'";
             $result = mysqli_query($conn, $sql);
 
             ?>
