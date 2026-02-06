@@ -46,7 +46,7 @@ include 'database.php';
 
                     <?php
 
-                    $sql = "SELECT COUNT(*) AS house_request FROM requests WHERE type = 'shelter'";
+                    $sql = "SELECT COUNT(*) AS house_request FROM requests WHERE type = 'shelter' AND status = 'pending'";
                     $result = mysqli_query($conn, $sql);
                     $row = mysqli_fetch_assoc($result);
 
@@ -65,7 +65,7 @@ include 'database.php';
 
                     <?php
 
-                    $sql = "SELECT COUNT(*) AS water_request FROM requests WHERE type = 'water'";
+                    $sql = "SELECT COUNT(*) AS water_request FROM requests WHERE type = 'water' AND status = 'pending'";
                     $result = mysqli_query($conn, $sql);
                     $row = mysqli_fetch_assoc($result);
 
@@ -85,7 +85,7 @@ include 'database.php';
 
                     <?php
 
-                    $sql = "SELECT COUNT(*) AS food_request FROM requests WHERE type = 'food'";
+                    $sql = "SELECT COUNT(*) AS food_request FROM requests WHERE type = 'food' AND status = 'pending'";
                     $result = mysqli_query($conn, $sql);
                     $row = mysqli_fetch_assoc($result);
 
@@ -104,7 +104,7 @@ include 'database.php';
 
                     <?php
 
-                    $sql = "SELECT COUNT(*) AS med_request FROM requests WHERE type = 'medicine'";
+                    $sql = "SELECT COUNT(*) AS med_request FROM requests WHERE type = 'medicine' AND status = 'pending'";
                     $result = mysqli_query($conn, $sql);
                     $row = mysqli_fetch_assoc($result);
 

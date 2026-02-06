@@ -39,7 +39,7 @@ $user_id = $_SESSION['user_id'];
 
             <?php
 
-            $sql = "SELECT * FROM requests WHERE user_id='$user_id'";
+            $sql = "SELECT * FROM requests WHERE user_id='$user_id' AND status = 'pending';";
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) > 0) {
