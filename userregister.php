@@ -67,8 +67,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($name) || empty($nic) || empty($address) || empty($telephone) || empty($email) || empty($district) || empty($password)) {
         echo "<script>alert('All fields are required.');</script>";
         exit;
+        
 
-    } else {
+    } 
+    
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Invalid email format.');</script>";
+        exit;
+    }
+
+    if (!is_numeric($telephone) || strlen($telephone) == 10) {
+        echo "<script>alert('Contact number must be numeric 10 digits.');</script>";
+        exit;
+    }
+    
+    else {
         $sql = "INSERT INTO users (name, nic, address, telephone, email, district, password) VALUES ('$name', '$nic', '$address', '$telephone', '$email', '$district', '$password')";
 
         mysqli_query($conn, $sql);
