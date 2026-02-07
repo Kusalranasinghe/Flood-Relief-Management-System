@@ -94,6 +94,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     }
 
+    if (!is_numeric($u_id) || !is_numeric($telephone) || !is_numeric($no_of_members)) {
+        echo "<script>alert('User ID, Telephone and Number of family members must be numeric.');</script>";
+        exit;
+    }
+
+    if ($no_of_members <= 0) {
+        echo "<script>alert('Number of family members must be a positive number.');</script>";
+        exit;
+    }
+
     else { 
         $sql = "INSERT INTO requests (user_id, type, district, ds_div, gn_div, name, telephone, address, no_of_fmembers, sev_level, description, status) VALUES ('$u_id', '$type', '$district', '$ds_div', '$gn_div', '$name', '$telephone', '$address', '$no_of_members', '$sev_level', '$description', 'pending')";
 
