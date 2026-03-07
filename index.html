@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flood Reilief Management System</title>
+    <title>Flood Relief Management System</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-    <h1>Welcome to the Flood Relief Management System</h1>
-    <p>This system is designed to help manage and coordinate flood relief efforts effectively.</p>
+    <header class="navbar">
+        <div class="logo"></div>
 
-    <button><a href="userlogin.php">User Login</a></button>
-    <button><a href="adminlogin.php">Admin Login</a></button>
+        <nav>
+            <a href="#">Services</a>
+            <a href="#">About</a>
+        </nav>
+
+        <button class="start-btn" onclick="window.location.href='adminlogin.php'">Admin Login  →</button>
+    </header>
+
+
+    <section class="hero">
+
+        <div class="badge">🔴 Emergency Flood Help and Resources</div>
+
+        <h1>
+
+            FLOOD RELIEF<br>
+            <span>SUPPORT CENTER</span>
+        </h1>
+
+        <p>
+            Digital platform supporting flood affected people by
+            coordinating relief services, information, and emergency assistance
+        </p>
+
+        <div class="buttons">
+            <button class="primary" onclick="window.location.href='userlogin.php'">SIGN IN</button>
+            <button class="secondary" onclick="window.location.href='userregister.php'">SIGN UP</button>
+        </div>
+
+    </section>
 
 </body>
+
 </html>
