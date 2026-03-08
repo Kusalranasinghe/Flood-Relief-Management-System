@@ -20,39 +20,77 @@ include 'database.php';
 
 <body>
 
+    <header class="navbar">
+        <div class="logo">#HelpSriLanka </div>
+
+        <nav>
+            <a href="index.php">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+
+            <button class="start-btn" onclick="window.location.href='adminlogin.php'">Admin</button>
+
+
+        </nav>
+
+
+
+    </header>
+
     <div class="form">
+        <div class="login-container">
 
-        <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="login-card">
 
-            <h3>User Registration</h3>
+            <h2>User Registration</h2>
 
-            <label>Name</label>
-            <input type="text" id="name" name="name" class="form-control mb-2">
+            <div class="mb-3">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control">
+            </div>
 
-            <label>Nic</label>
-            <input type="text" id="nic" name="nic" class="form-control mb-2">
+            <div class="mb-3">
+                <label>NIC</label>
+                <input type="text" name="nic" class="form-control">
+            </div>
 
-            <label>Address</label>
-            <input type="text" id="address" name="address" class="form-control mb-2">
+            <div class="mb-3">
+                <label>Address</label>
+                <input type="text" name="address" class="form-control">
+            </div>
 
-            <label>District</label>
-            <input type="text" id="district" name="district" class="form-control mb-2">
+            <div class="mb-3">
+                <label>District</label>
+                <input type="text" name="district" class="form-control">
+            </div>
 
-            <label>Contact Number</label>
-            <input type="text" id="telephone" name="telephone" class="form-control mb-2">
+            <div class="mb-3">
+                <label>Contact Number</label>
+                <input type="text" name="telephone" class="form-control">
+            </div>
 
-            <label>Email</label>
-            <input type="text" id="email" name="email" class="form-control mb-2">
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control">
+            </div>
 
-            <label>Password</label>
-            <input type="password" class="form-control mb-2" id="password" name="password">
+            <div class="mb-3">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control">
+            </div>
 
-            <button class="btn btn-danger w-100">Register</button>
+            <button type="submit" class="btn-login">Register</button>
 
+            <p class="signup-text">
+                Already have an account? <a href="userlogin.php">Login</a>
+            </p>
 
         </form>
+
     </div>
 
+
+    
 
 </body>
 
