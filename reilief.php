@@ -11,19 +11,21 @@ include 'database.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Reilief Request</title>
 </head>
 
 <body>
 
+    <div class="form">
 
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-
-        <h2>Flood Reilief Requests</h2>
+        <h3>Flood Reilief Requests</h3> <br>
 
         <label for="u_id">User ID</label>
-        <input type="text" id="u_id" name="u_id" placeholder="Your user id..">
+        <input type="text" id="u_id" name="u_id" class="form-control mb-2"> <br>
 
         <label for="type">Type of Reilief </label>
         <select id="type" name="type">
@@ -31,42 +33,44 @@ include 'database.php';
             <option value="water">Water</option>
             <option value="medicine">Medicine</option>
             <option value="shelter">Shelter</option>
-        </select>
+        </select> <br><br>
 
         <label for="district">District</label>
-        <input type="text" id="district" name="district" placeholder="Your district..">
+        <input type="text" id="district" name="district" class="form-control mb-2">
 
         <label for="ds_div">Divisional Secretariat Division</label>
-        <input type="text" id="ds_div" name="ds_div" placeholder="Your DS division..">
+        <input type="text" id="ds_div" name="ds_div" class="form-control mb-2">
 
         <label for="gn_div">Grama Niladari Division</label>
-        <input type="text" id="gn_div" name="gn_div" placeholder="Your GN division">
+        <input type="text" id="gn_div" name="gn_div" class="form-control mb-2">
 
          <label for="name">Person's Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name..">
+        <input type="text" id="name" name="name" class="form-control mb-2">
 
         <label for="telephone">Telephone</label>
-        <input type="text" id="telephone" name="telephone" placeholder="Your telephone..">
+        <input type="text" id="telephone" name="telephone"  class="form-control mb-2">
 
         <label for="address">Address</label>
-        <input type="text" id="address" name="address" placeholder="Your address..">
+        <input type="text" id="address" name="address" class="form-control mb-2">
 
         <label for="no_of_members">Number of Family Members</label>
-        <input type="text" id="no_of_members" name="no_of_members" placeholder="Number of family members..">
+        <input type="text" id="no_of_members" name="no_of_members"  class="form-control mb-2"> <br>
 
         <label for="sev_level">Flood severity level</label>
         <select id="sev_level" name="sev_level">
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
-        </select>
+        </select> <br><br>
 
         <label for="description">Description</label>
-        <input type="text" id="description" name="description" placeholder="Description..">
+        <input type="text" id="description" name="description"  class="form-control mb-2"> <br>
 
 
-        <input type="submit" value="Submit">
+        <button class="btn btn-danger w-100">Sent Request</button>
+
     </form>
+    </div>
 
 </body>
 
