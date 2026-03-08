@@ -21,23 +21,52 @@ session_start();
 
 <body>
 
+    <header class="navbar">
+        <div class="logo">#HelpSriLanka </div>
+
+        <nav>
+            <a href="index.php">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+
+            <button class="start-btn" onclick="window.location.href='adminlogin.php'">Admin</button>
+
+
+        </nav>
+
+
+
+    </header>
+
     <div class="form">
 
-        <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+        <div class="login-container">
 
-            <h3>User Login</h3>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="login-card">
 
-            <label>Email</label>
-            <input type="text" id="email" name="email" class="form-control mb-2">
+                <h2>User Login</h2>
 
-            <label>Password</label>
-            <input type="password" class="form-control mb-2" id="password" name="password">
+                <div class="mb-3">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control">
+                </div>
 
-            <button class="btn btn-danger w-100">Sign In</button>
+                <div class="mb-3">
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
 
-            <p>Don't have an account? <a href="userregister.php">Sign Up</a></p>
-    
-        </form>
+                <button type="submit" class="btn-login">Sign In</button>
+
+                <p class="signup-text">
+                    Don't have an account? <a href="userregister.php">Sign Up</a>
+                </p>
+
+            </form>
+
+        </div>
+
+
     </div>
 
 

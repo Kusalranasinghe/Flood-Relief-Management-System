@@ -18,59 +18,81 @@ include 'database.php';
 
 <body>
 
-    <div class="form">
+    <div class="request-container">
 
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="request-card">
 
-        <h3>Flood Reilief Requests</h3> <br>
+<h2>Flood Relief Request</h2>
 
-        <label for="u_id">User ID</label>
-        <input type="text" id="u_id" name="u_id" class="form-control mb-2"> <br>
+<div class="mb-3">
+<label>User ID</label>
+<input type="text" name="u_id" class="form-control">
+</div>
 
-        <label for="type">Type of Reilief </label>
-        <select id="type" name="type">
-            <option value="food">Food</option>
-            <option value="water">Water</option>
-            <option value="medicine">Medicine</option>
-            <option value="shelter">Shelter</option>
-        </select> <br><br>
+<div class="mb-3">
+<label>Type of Relief</label>
+<select name="type" class="form-control">
+<option value="food">Food</option>
+<option value="water">Water</option>
+<option value="medicine">Medicine</option>
+<option value="shelter">Shelter</option>
+</select>
+</div>
 
-        <label for="district">District</label>
-        <input type="text" id="district" name="district" class="form-control mb-2">
+<div class="mb-3">
+<label>District</label>
+<input type="text" name="district" class="form-control">
+</div>
 
-        <label for="ds_div">Divisional Secretariat Division</label>
-        <input type="text" id="ds_div" name="ds_div" class="form-control mb-2">
+<div class="mb-3">
+<label>Divisional Secretariat Division</label>
+<input type="text" name="ds_div" class="form-control">
+</div>
 
-        <label for="gn_div">Grama Niladari Division</label>
-        <input type="text" id="gn_div" name="gn_div" class="form-control mb-2">
+<div class="mb-3">
+<label>Grama Niladari Division</label>
+<input type="text" name="gn_div" class="form-control">
+</div>
 
-         <label for="name">Person's Name</label>
-        <input type="text" id="name" name="name" class="form-control mb-2">
+<div class="mb-3">
+<label>Person's Name</label>
+<input type="text" name="name" class="form-control">
+</div>
 
-        <label for="telephone">Telephone</label>
-        <input type="text" id="telephone" name="telephone"  class="form-control mb-2">
+<div class="mb-3">
+<label>Telephone</label>
+<input type="text" name="telephone" class="form-control">
+</div>
 
-        <label for="address">Address</label>
-        <input type="text" id="address" name="address" class="form-control mb-2">
+<div class="mb-3">
+<label>Address</label>
+<input type="text" name="address" class="form-control">
+</div>
 
-        <label for="no_of_members">Number of Family Members</label>
-        <input type="text" id="no_of_members" name="no_of_members"  class="form-control mb-2"> <br>
+<div class="mb-3">
+<label>Number of Family Members</label>
+<input type="number" name="no_of_members" class="form-control">
+</div>
 
-        <label for="sev_level">Flood severity level</label>
-        <select id="sev_level" name="sev_level">
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-        </select> <br><br>
+<div class="mb-3">
+<label>Flood Severity Level</label>
+<select name="sev_level" class="form-control">
+<option value="low">Low</option>
+<option value="medium">Medium</option>
+<option value="high">High</option>
+</select>
+</div>
 
-        <label for="description">Description</label>
-        <input type="text" id="description" name="description"  class="form-control mb-2"> <br>
+<div class="mb-3">
+<label>Description</label>
+<textarea name="description" class="form-control"></textarea>
+</div>
 
+<button type="submit" class="btn-request">Send Request</button>
 
-        <button class="btn btn-danger w-100">Sent Request</button>
+</form>
 
-    </form>
-    </div>
+</div>
 
 </body>
 
