@@ -20,33 +20,39 @@ include 'database.php';
 
 <body>
 
-    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+    <div class="form">
 
-        <h1>User Registration</h1>
+        <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 
-        <label>Name</label>
-        <input type="text" id="name" name="name" class="form-control mb-2">
+            <h3>User Registration</h3>
 
-        <label>Nic</label>
-        <input type="text" id="nic" name="nic" class="form-control mb-2">
+            <label>Name</label>
+            <input type="text" id="name" name="name" class="form-control mb-2">
 
-        <label>Address</label>
-        <input type="text" id="address" name="address" class="form-control mb-2">
+            <label>Nic</label>
+            <input type="text" id="nic" name="nic" class="form-control mb-2">
 
-        <label>District</label>
-        <input type="text" id="district" name="district" class="form-control mb-2">
+            <label>Address</label>
+            <input type="text" id="address" name="address" class="form-control mb-2">
 
-        <label>Contact Number</label>
-        <input type="text" id="telephone" name="telephone" class="form-control mb-2">
+            <label>District</label>
+            <input type="text" id="district" name="district" class="form-control mb-2">
 
-        <label>Email</label>
-        <input type="text" id="email" name="email" class="form-control mb-2">
+            <label>Contact Number</label>
+            <input type="text" id="telephone" name="telephone" class="form-control mb-2">
 
-        <label>Password</label>
-        <input type="password" class="form-control mb-2" id="password" name="password">
+            <label>Email</label>
+            <input type="text" id="email" name="email" class="form-control mb-2">
 
-        <button class="btn btn-danger w-100">Register</button>
-    </form>
+            <label>Password</label>
+            <input type="password" class="form-control mb-2" id="password" name="password">
+
+            <button class="btn btn-danger w-100">Register</button>
+
+
+        </form>
+    </div>
+
 
 </body>
 
@@ -67,10 +73,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($name) || empty($nic) || empty($address) || empty($telephone) || empty($email) || empty($district) || empty($password)) {
         echo "<script>alert('All fields are required.');</script>";
         exit;
-        
 
-    } 
-    
+
+    }
+
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "<script>alert('Invalid email format.');</script>";
         exit;
@@ -79,9 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!is_numeric($telephone) || strlen($telephone) == 10) {
         echo "<script>alert('Contact number must be numeric 10 digits.');</script>";
         exit;
-    }
-    
-    else {
+    } else {
         $sql = "INSERT INTO users (name, nic, address, telephone, email, district, password) VALUES ('$name', '$nic', '$address', '$telephone', '$email', '$district', '$password')";
 
         mysqli_query($conn, $sql);
