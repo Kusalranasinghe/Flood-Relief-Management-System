@@ -550,3 +550,116 @@ body {
 .signup-text a:hover{
     text-decoration:underline;
 }
+
+/* userdashboard */
+
+.dashboard-container{
+    width:90%;
+    margin:auto;
+    padding-top:60px;
+}
+
+/* Header */
+
+.dashboard-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.dashboard-header h2{
+    color:#8b5cf6;
+}
+
+.dashboard-header p{
+    color:#cbd5f5;
+}
+
+/* Glass table card */
+
+.table-card{
+
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+
+    border-radius:15px;
+    padding:25px;
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    box-shadow:0 0 25px rgba(139,92,246,0.2);
+}
+
+/* Table */
+
+.custom-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.custom-table th{
+
+    background:#1e293b;
+    color:#8b5cf6;
+    padding:12px;
+}
+
+.custom-table td{
+    padding:12px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.custom-table tr:hover{
+    background:rgba(255,255,255,0.05);
+}
+
+/* Buttons */
+
+.btn-update{
+
+    padding:6px 12px;
+    background:#22c55e;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    margin-right:5px;
+}
+
+.btn-delete{
+
+    padding:6px 12px;
+    background:#ef4444;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+}
+
+/* Bottom buttons */
+
+.dashboard-buttons{
+
+    margin-top:25px;
+    display:flex;
+    gap:15px;
+}
+
+.btn-frequest{
+
+    padding:10px 20px;
+    width: 200px;
+    border-radius:25px;
+
+    background:linear-gradient(90deg,#8b5cf6,#6366f1);
+
+    color:white;
+    text-decoration:none;
+}
+
+.btn-logout{
+
+    padding:10px 20px;
+    border-radius:25px;
+
+    background:#ef4444;
+    color:white;
+    text-decoration:none;
+}
