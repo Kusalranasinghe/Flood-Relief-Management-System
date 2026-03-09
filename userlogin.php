@@ -21,7 +21,7 @@ session_start();
 
 <body>
 
-    <header class="navbar">
+    <header class="navbar" style="padding: 20px; padding-left: 80px; padding-right: 80px;">
         <div class="logo">#HelpSriLanka </div>
 
         <nav>
@@ -68,6 +68,52 @@ session_start();
 
 
     </div>
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h2>Flood Relief Center</h2>
+                <p>
+                    Supporting communities affected by floods through emergency
+                    coordination, real-time information, and relief services.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3 style="color: red;">Emergency Help</h3>
+                <ul style="font-size: 19px; color:aliceblue">
+                    <li>+94112420250</li>
+                    <li>+94112220938</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Safety Guidelines</a></li>
+                    <li><a href="#">Relief Centers</a></li>
+                    <li><a href="#">Donate</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Flood Relief Support Center | All Rights Reserved</p>
+        </div>
+
+    </footer>
 
 
 </body>
