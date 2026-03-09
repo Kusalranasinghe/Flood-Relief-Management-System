@@ -20,7 +20,7 @@ include 'database.php';
 
 <body>
 
-    <header class="navbar">
+    <header class="navbar" style="padding: 20px; padding-left: 80px; padding-right: 80px;">
         <div class="logo">#HelpSriLanka </div>
 
         <nav>
@@ -37,60 +37,109 @@ include 'database.php';
 
     </header>
 
-    <div class="form">
+
+
+    <div class="form1" style="padding: 50px;">
         <div class="login-container">
 
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="login-card">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="register-card">
 
-            <h2>User Registration</h2>
+                <h2>User Registration</h2>
 
-            <div class="mb-3">
-                <label>Name</label>
-                <input type="text" name="name" class="form-control">
-            </div>
+                <div class="mb-3">
+                    <label>Name</label>
+                    <input type="text" name="name" class="form-control">
+                </div>
 
-            <div class="mb-3">
-                <label>NIC</label>
-                <input type="text" name="nic" class="form-control">
-            </div>
+                <div class="mb-3">
+                    <label>NIC</label>
+                    <input type="text" name="nic" class="form-control">
+                </div>
 
-            <div class="mb-3">
-                <label>Address</label>
-                <input type="text" name="address" class="form-control">
-            </div>
+                <div class="mb-3">
+                    <label>Address</label>
+                    <input type="text" name="address" class="form-control">
+                </div>
 
-            <div class="mb-3">
-                <label>District</label>
-                <input type="text" name="district" class="form-control">
-            </div>
+                <div class="mb-3">
+                    <label>District</label>
+                    <input type="text" name="district" class="form-control">
+                </div>
 
-            <div class="mb-3">
-                <label>Contact Number</label>
-                <input type="text" name="telephone" class="form-control">
-            </div>
+                <div class="mb-3">
+                    <label>Contact Number</label>
+                    <input type="text" name="telephone" class="form-control">
+                </div>
 
-            <div class="mb-3">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control">
-            </div>
+                <div class="mb-3">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control">
+                </div>
 
-            <div class="mb-3">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control">
-            </div>
+                <div class="mb-3">
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
 
-            <button type="submit" class="btn-login">Register</button>
+                <button type="submit" class="btn-register">Register</button>
 
-            <p class="signup-text">
-                Already have an account? <a href="userlogin.php">Login</a>
-            </p>
+                <p class="signup-text">
+                    Already have an account? <a href="userlogin.php">Login</a>
+                </p>
 
-        </form>
+            </form>
 
+        </div>
     </div>
 
+    <footer class="footer">
 
-    
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h2>Flood Relief Center</h2>
+                <p>
+                    Supporting communities affected by floods through emergency
+                    coordination, real-time information, and relief services.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3 style="color: red;">Emergency Help</h3>
+                <ul style="font-size: 19px; color:aliceblue">
+                    <li>+94112420250</li>
+                    <li>+94112220938</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Safety Guidelines</a></li>
+                    <li><a href="#">Relief Centers</a></li>
+                    <li><a href="#">Donate</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Flood Relief Support Center | All Rights Reserved</p>
+        </div>
+
+    </footer>
+
+
+
 
 </body>
 
