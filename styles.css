@@ -134,7 +134,7 @@ body {
   font-size: 17px;
 }
 
-.footer {
+#footer {
   padding: 40px 60px;
 }
 
@@ -544,8 +544,9 @@ body {
     gap: 20px;
 }
 
-.btn-update,
-.btn-success,
+
+.btn-delete,
+
 .btn-frequest,
 .start-btn {
   background: linear-gradient(90deg, #ea580c, #f97316) !important;
@@ -557,6 +558,20 @@ body {
   display: inline-block;
   text-decoration: none;
 }
+
+.btn-update,
+.btn-success {
+  background-color: green;
+   border: none !important;
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  text-decoration: none;
+}
+
+
 
 .btn-logout {
   padding: 10px 20px;
@@ -577,5 +592,13 @@ body {
   --bs-table-bg: transparent !important;
 }
 
-
+.btn-update:hover,
+.btn-delete:hover,
+.btn-logout:hover,
+.btn-success:hover,
+.btn-frequest:hover,
+.start-btn:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
 

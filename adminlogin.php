@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     if (empty($email) || empty($password)) {
-        echo "All fields are required.";
+        echo "<script>alert('Please fill in all fields.');</script>";
         exit;
     } else {
         $sql = "SELECT * FROM admin WHERE email='$email' AND password='$password'";
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (mysqli_num_rows($result) == 1) {
             header("Location: admindashboard.php");
         } else {
-            echo "Invalid email or password.";
+            echo "<script>alert('Invalid email or password.');</script>";
         }
     }
 

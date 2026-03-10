@@ -63,6 +63,10 @@ include 'database.php';
             <?php include 'sumlocations.php'; ?>
         </div>
 
+        <div class="mt-4">
+            <?php include 'reliefhistory.php'; ?>
+        </div>
+
         <div class="mt-5 text-center">
             <a href="requestdashboard.php" class="btn btn-primary px-4 py-2 m-2">Manage Requests</a>
             <a href="viewusers.php" class="btn btn-secondary px-4 py-2 m-2">View Registered Users</a>

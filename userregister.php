@@ -25,8 +25,7 @@ include 'database.php';
 
         <nav>
             <a href="index.php">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#footer">Contact</a>
 
             <button class="start-btn" onclick="window.location.href='adminlogin.php'">Admin</button>
 
@@ -39,7 +38,7 @@ include 'database.php';
 
 
 
-    <div class="form1" style="padding: 50px;">
+    <div class="form1" style="padding: 50px; padding-top: 140px;">
         <div class="login-container">
 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="register-card">
@@ -92,53 +91,9 @@ include 'database.php';
         </div>
     </div>
 
-    <footer class="footer">
+    <?php include 'footer.php'; ?>
 
-        <div class="footer-container">
-
-            <div class="footer-col">
-                <h2>Flood Relief Center</h2>
-                <p>
-                    Supporting communities affected by floods through emergency
-                    coordination, real-time information, and relief services.
-                </p>
-            </div>
-
-            <div class="footer-col">
-                <h3 style="color: red;">Emergency Help</h3>
-                <ul style="font-size: 19px; color:aliceblue">
-                    <li>+94112420250</li>
-                    <li>+94112220938</li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Resources</h3>
-                <ul>
-                    <li><a href="#">Safety Guidelines</a></li>
-                    <li><a href="#">Relief Centers</a></li>
-                    <li><a href="#">Donate</a></li>
-                    <li><a href="#">Volunteer</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Legal</h3>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 Flood Relief Support Center | All Rights Reserved</p>
-        </div>
-
-    </footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
