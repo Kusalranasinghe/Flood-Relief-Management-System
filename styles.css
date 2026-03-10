@@ -602,3 +602,13 @@ body {
   transition: 0.3s;
 }
 
+.custom-select {
+    background-color: #1e293b !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.custom-select option {
+    background: #0f172a;
+    color: white;
+}
