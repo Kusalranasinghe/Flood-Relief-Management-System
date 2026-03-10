@@ -75,15 +75,16 @@ session_start();
 
             <div class="footer-col">
                 <h2>Flood Relief Center</h2>
-                <p>
-                    Supporting communities affected by floods through emergency
-                    coordination, real-time information, and relief services.
+                <p>No.77/5,<br>
+                    Galle Rd,<br>
+                    Mt Lavinia,<br>
+                    Sri Lanka.
                 </p>
             </div>
 
             <div class="footer-col">
                 <h3 style="color: red;">Emergency Help</h3>
-                <ul style="font-size: 19px; color:aliceblue">
+                <ul style="font-size: 19px;">
                     <li>+94112420250</li>
                     <li>+94112220938</li>
                 </ul>
@@ -115,7 +116,7 @@ session_start();
 
     </footer>
 
-
+    <script src="script.js"></script>
 </body>
 
 </html>
@@ -150,7 +151,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: userdashboard.php");
 
             exit;
-
         } else {
             echo "Invalid email or password.";
         }
