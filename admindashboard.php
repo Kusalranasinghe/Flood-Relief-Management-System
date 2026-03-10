@@ -57,6 +57,14 @@ include 'database.php';
                 echo "<h2>" . $data['total'] . "</h2>";
                 ?>
             </div>
+            <div class="stat-card">
+                <h5>Medical Requests</h5>
+                <?php
+                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE type = 'medicine' AND status = 'pending'");
+                $data = mysqli_fetch_assoc($res);
+                echo "<h2>" . $data['total'] . "</h2>";
+                ?>
+            </div>
         </div>
 
         <div class="mt-4">
