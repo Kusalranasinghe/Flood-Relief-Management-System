@@ -11,62 +11,88 @@ include 'database.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Reilief Request</title>
 </head>
 
 <body>
 
+    <div class="request-container">
 
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="request-card">
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+            <h2>Flood Relief Request</h2>
 
-        <h2>Flood Reilief Requests</h2>
+            <div class="mb-3">
+                <label>User ID</label>
+                <input type="text" name="u_id" class="form-control">
+            </div>
 
-        <label for="u_id">User ID</label>
-        <input type="text" id="u_id" name="u_id" placeholder="Your user id..">
+            <div class="mb-3">
+                <label>Type of Relief</label>
+                <select name="type" class="form-control">
+                    <option value="food">Food</option>
+                    <option value="water">Water</option>
+                    <option value="medicine">Medicine</option>
+                    <option value="shelter">Shelter</option>
+                </select>
+            </div>
 
-        <label for="type">Type of Reilief </label>
-        <select id="type" name="type">
-            <option value="food">Food</option>
-            <option value="water">Water</option>
-            <option value="medicine">Medicine</option>
-            <option value="shelter">Shelter</option>
-        </select>
+            <div class="mb-3">
+                <label>District</label>
+                <input type="text" name="district" class="form-control">
+            </div>
 
-        <label for="district">District</label>
-        <input type="text" id="district" name="district" placeholder="Your district..">
+            <div class="mb-3">
+                <label>Divisional Secretariat Division</label>
+                <input type="text" name="ds_div" class="form-control">
+            </div>
 
-        <label for="ds_div">Divisional Secretariat Division</label>
-        <input type="text" id="ds_div" name="ds_div" placeholder="Your DS division..">
+            <div class="mb-3">
+                <label>Grama Niladari Division</label>
+                <input type="text" name="gn_div" class="form-control">
+            </div>
 
-        <label for="gn_div">Grama Niladari Division</label>
-        <input type="text" id="gn_div" name="gn_div" placeholder="Your GN division">
+            <div class="mb-3">
+                <label>Person's Name</label>
+                <input type="text" name="name" class="form-control">
+            </div>
 
-         <label for="name">Person's Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name..">
+            <div class="mb-3">
+                <label>Telephone</label>
+                <input type="text" name="telephone" class="form-control">
+            </div>
 
-        <label for="telephone">Telephone</label>
-        <input type="text" id="telephone" name="telephone" placeholder="Your telephone..">
+            <div class="mb-3">
+                <label>Address</label>
+                <input type="text" name="address" class="form-control">
+            </div>
 
-        <label for="address">Address</label>
-        <input type="text" id="address" name="address" placeholder="Your address..">
+            <div class="mb-3">
+                <label>Number of Family Members</label>
+                <input type="number" name="no_of_members" class="form-control">
+            </div>
 
-        <label for="no_of_members">Number of Family Members</label>
-        <input type="text" id="no_of_members" name="no_of_members" placeholder="Number of family members..">
+            <div class="mb-3">
+                <label>Flood Severity Level</label>
+                <select name="sev_level" class="form-control">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
 
-        <label for="sev_level">Flood severity level</label>
-        <select id="sev_level" name="sev_level">
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-        </select>
+            <div class="mb-3">
+                <label>Description</label>
+                <textarea name="description" class="form-control"></textarea>
+            </div>
 
-        <label for="description">Description</label>
-        <input type="text" id="description" name="description" placeholder="Description..">
+            <button type="submit" class="btn-request">Send Request</button>
 
+        </form>
 
-        <input type="submit" value="Submit">
-    </form>
+    </div>
 
 </body>
 
@@ -94,17 +120,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     }
 
-    else { 
-        $sql = "INSERT INTO requests (user_id, type, district, ds_div, gn_div, name, telephone, address, no_of_fmembers, sev_level, description) VALUES ('$u_id', '$type', '$district', '$ds_div', '$gn_div', '$name', '$telephone', '$address', '$no_of_members', '$sev_level', '$description')";
+    if (!is_numeric($u_id) || !is_numeric($telephone) || !is_numeric($no_of_members)) {
+        echo "<script>alert('User ID, Telephone and Number of family members must be numeric.');</script>";
+        exit;
+    }
 
-        mysqli_query($conn, $sql );
+    if ($no_of_members <= 0) {
+        echo "<script>alert('Number of family members must be a positive number.');</script>";
+        exit;
+    } else {
+        $sql = "INSERT INTO requests (user_id, type, district, ds_div, gn_div, name, telephone, address, no_of_fmembers, sev_level, description, status) VALUES ('$u_id', '$type', '$district', '$ds_div', '$gn_div', '$name', '$telephone', '$address', '$no_of_members', '$sev_level', '$description', 'pending')";
+
+        mysqli_query($conn, $sql);
         echo "<script>
         alert('Request submitted successfully.');
         window.location.href='userdashboard.php';
       </script>";
-    
 
-    mysqli_close($conn);
+
+        mysqli_close($conn);
 
     }
 

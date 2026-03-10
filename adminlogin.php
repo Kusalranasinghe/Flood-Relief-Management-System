@@ -65,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($email) || empty($password)) {
         echo "<script>alert('Please fill in all fields.');</script>";
+        exit;
     } else {
         $sql = "SELECT * FROM admin WHERE email='$email' AND password='$password'";
         $result = mysqli_query($conn, $sql);

@@ -12,116 +12,67 @@ include 'database.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <title>Admin Dashboard</title>
 </head>
 
 <body>
-    <h1>Admin Dashboard</h1>
-    <p>Welcome to the admin dashboard. Here you can manage flood relief requests and view statistics.</p>
+    <div class="dashboard-container">
+        <div class="dashboard-header text-center mb-5">
+            <h2>Admin Management Portal</h2>
+            <p>System Overview & Statistics</p>
+        </div>
 
-    <div class="row">
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Total Registered Users</h5>
-
-                    <?php
-
-                    $sql = "SELECT COUNT(*) AS total_users FROM users";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-
-                    ?>
-
-                    <h1 id="reg_users"><?php echo $row['total_users']; ?></h1>
-
-                </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h5>Total Users</h5>
+                <?php
+                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM users");
+                $data = mysqli_fetch_assoc($res);
+                echo "<h2>" . $data['total'] . "</h2>";
+                ?>
+            </div>
+            <div class="stat-card">
+                <h5>Shelter Requests</h5>
+                <?php
+                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE type = 'shelter' AND status = 'pending'");
+                $data = mysqli_fetch_assoc($res);
+                echo "<h2>" . $data['total'] . "</h2>";
+                ?>
+            </div>
+            <div class="stat-card">
+                <h5>Water Requests</h5>
+                <?php
+                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE type = 'water' AND status = 'pending'");
+                $data = mysqli_fetch_assoc($res);
+                echo "<h2>" . $data['total'] . "</h2>";
+                ?>
+            </div>
+            <div class="stat-card">
+                <h5>Food Requests</h5>
+                <?php
+                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE type = 'food' AND status = 'pending'");
+                $data = mysqli_fetch_assoc($res);
+                echo "<h2>" . $data['total'] . "</h2>";
+                ?>
             </div>
         </div>
 
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">High Severity Households</h5>
-
-                    <?php
-
-                    $sql = "SELECT COUNT(*) AS house_request FROM requests WHERE type = 'shelter'";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-
-                    ?>
-
-                    <h1 id="house_req"><?php echo $row['house_request']; ?></h1>
-
-                </div>
-            </div>
+        <div class="mt-4">
+            <?php include 'sumlocations.php'; ?>
         </div>
 
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Water Requests</h5>
-
-                    <?php
-
-                    $sql = "SELECT COUNT(*) AS water_request FROM requests WHERE type = 'water'";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-
-                    ?>
-
-                    <h1 id="water_req"><?php echo $row['water_request']; ?></h1>
-
-
-                </div>
-            </div>
+        <div class="mt-4">
+            <?php include 'reliefhistory.php'; ?>
         </div>
 
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Food Requests</h5>
-
-                    <?php
-
-                    $sql = "SELECT COUNT(*) AS food_request FROM requests WHERE type = 'food'";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-
-                    ?>
-
-                    <h1 id="food_req"><?php echo $row['food_request']; ?></h1>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Medicine Requests</h5>
-
-                    <?php
-
-                    $sql = "SELECT COUNT(*) AS med_request FROM requests WHERE type = 'medicine'";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-
-                    ?>
-
-                    <h1 id="med_req"><?php echo $row['med_request']; ?></h1>
-
-                </div>
-            </div>
+        <div class="mt-5 text-center">
+            <a href="requestdashboard.php" class="btn btn-primary px-4 py-2 m-2">Manage Requests</a>
+            <a href="viewusers.php" class="btn btn-secondary px-4 py-2 m-2">View Registered Users</a>
+            <a href="logout.php" class="btn btn-danger px-4 py-2 m-2">Logout System</a>
         </div>
     </div>
-
-    <button><a href="requestdashboard.php">View Requests</a></button>
-    <button><a href="viewusers.php">View All Users</a></button>
-    <a href="logout.php" class="btn btn-danger">Logout</a>
-
-
 </body>
 
 </html>
