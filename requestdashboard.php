@@ -17,53 +17,51 @@ include 'database.php';
 </head>
 
 <body>
+    <div class="container mt-5">
+        <div class="dashboard-header mb-4">
+            <h2>Relief Request Management</h2>
+            <p>Review and take action on pending flood relief requests</p>
+        </div>
 
-    <table class="table table-bordered table-striped table-hover text-center">
-        <thead class="table-dark">
-
-            <tr>
-                <th>Request ID</th>
-                <th>Severity Level</th>
-                <th>Request Type</th>
-                <th>District</th>
-                <th>Contact Number</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <?php
-
-            $sql = "SELECT * FROM requests WHERE status='pending'";
-            $result = mysqli_query($conn, $sql);
-
-            ?>
-
-            <?php
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>
-                        <td>{$row['id']}</td>
-                        <td>{$row['sev_level']}</td>
-                        <td>{$row['type']}</td>
-                        <td>{$row['district']}</td>
-                        <td>{$row['telephone']}</td>
-                        <td>
-                    <a href='action.php?action=accept&id={$row['id']}' class='btn btn-success'>Accept</a>
-                    <a href='action.php?action=reject&id={$row['id']}' class='btn btn-danger'>Reject</a>
-                </td>
-                      
-                      </tr>";
-                }
-
-            } else {
-                echo "<tr><td colspan='6'>No records found</td></tr>";
-            }
-            ?>
-
-        </tbody>
-    </table>
-
+        <div class="table-card">
+            <table class="custom-table w-100">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Severity</th>
+                        <th>District</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $result = mysqli_query($conn, "SELECT * FROM requests WHERE status='pending'");
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $sevColor = ($row['sev_level'] == 'High') ? 'text-danger' : 'text-warning';
+                            echo "<tr>
+                                <td>{$row['id']}</td>
+                                <td>" . ucfirst($row['type']) . "</td>
+                                <td class='$sevColor'><strong>{$row['sev_level']}</strong></td>
+                                <td>{$row['district']}</td>
+                                <td>
+                                    <a href='action.php?action=accept&id={$row['id']}' onclick='return confirm(\"Approve this?\")' class='btn btn-sm btn-success'>Accept</a>
+                                    <a href='action.php?action=reject&id={$row['id']}' onclick='return confirm(\"Reject this?\")' class='btn btn-sm btn-danger'>Reject</a>
+                                </td>
+                            </tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='5' class='text-center'>No pending requests found.</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-3">
+            <a href="admindashboard.php" class="btn btn-outline-light">← Back to Dashboard</a>
+        </div>
+    </div>
 </body>
 
 </html>
