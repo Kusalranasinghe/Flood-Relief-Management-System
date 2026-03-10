@@ -20,34 +20,80 @@ include 'database.php';
 
 <body>
 
-    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+    <header class="navbar" style="padding: 20px; padding-left: 80px; padding-right: 80px;">
+        <div class="logo">#HelpSriLanka </div>
 
-        <h1>User Registration</h1>
+        <nav>
+            <a href="index.php">Home</a>
+            <a href="#footer">Contact</a>
 
-        <label>Name</label>
-        <input type="text" id="name" name="name" class="form-control mb-2">
+            <button class="start-btn" onclick="window.location.href='adminlogin.php'">Admin</button>
 
-        <label>Nic</label>
-        <input type="text" id="nic" name="nic" class="form-control mb-2">
 
-        <label>Address</label>
-        <input type="text" id="address" name="address" class="form-control mb-2">
+        </nav>
 
-        <label>District</label>
-        <input type="text" id="district" name="district" class="form-control mb-2">
 
-        <label>Contact Number</label>
-        <input type="text" id="telephone" name="telephone" class="form-control mb-2">
 
-        <label>Email</label>
-        <input type="text" id="email" name="email" class="form-control mb-2">
+    </header>
 
-        <label>Password</label>
-        <input type="password" class="form-control mb-2" id="password" name="password">
 
-        <button class="btn btn-danger w-100">Register</button>
-    </form>
 
+    <div class="form1" style="padding: 50px; padding-top: 140px;">
+        <div class="login-container">
+
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="register-card">
+
+                <h2>User Registration</h2>
+
+                <div class="mb-3">
+                    <label>Name</label>
+                    <input type="text" name="name" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label>NIC</label>
+                    <input type="text" name="nic" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label>Address</label>
+                    <input type="text" name="address" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label>District</label>
+                    <input type="text" name="district" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label>Contact Number</label>
+                    <input type="text" name="telephone" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+
+                <button type="submit" class="btn-register">Register</button>
+
+                <p class="signup-text">
+                    Already have an account? <a href="userlogin.php">Login</a>
+                </p>
+
+            </form>
+
+        </div>
+    </div>
+
+    <?php include 'footer.php'; ?>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
@@ -67,10 +113,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($name) || empty($nic) || empty($address) || empty($telephone) || empty($email) || empty($district) || empty($password)) {
         echo "<script>alert('All fields are required.');</script>";
         exit;
-        
 
-    } 
-    
+
+    }
+
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "<script>alert('Invalid email format.');</script>";
         exit;
@@ -79,9 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!is_numeric($telephone) || strlen($telephone) == 10) {
         echo "<script>alert('Contact number must be numeric 10 digits.');</script>";
         exit;
-    }
-    
-    else {
+    } else {
         $sql = "INSERT INTO users (name, nic, address, telephone, email, district, password) VALUES ('$name', '$nic', '$address', '$telephone', '$email', '$district', '$password')";
 
         mysqli_query($conn, $sql);

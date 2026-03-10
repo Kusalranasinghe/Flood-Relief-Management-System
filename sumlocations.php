@@ -27,7 +27,6 @@ include 'database.php';
             <tr>
                 <th>District</th>
                 <th>Percentage</th>
-                <th>View</th>
             </tr>
         </thead>
 
@@ -56,10 +55,6 @@ include 'database.php';
                     echo "<tr>
                 <td>{$row['district']}</td>
                 <td>{$percentage}%</td>
-                <td>
-                    <a href='relieflocation.php?district={$row['district']}' 
-                       class='btn btn-success'>See</a>
-                </td>
               </tr>";
                 }
             } else {
