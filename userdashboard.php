@@ -42,8 +42,7 @@ $user_id = $_SESSION['user_id'];
                     </tr>
                 </thead>
 
-                <tbody style="color: azure;">
-
+                <tbody>
                     <?php
 
                     $sql = "SELECT * FROM requests WHERE user_id='$user_id' AND status='pending'";

@@ -6,6 +6,7 @@ include 'database.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,39 +16,45 @@ include 'database.php';
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
 </head>
+
 <body>
-    <h1>View All Users</h1>
+    <div class="container mt-5">
+        <div class="dashboard-header mb-4">
+            <h2>Registered System Users</h2>
+            <p>Manage and view detailed profiles of affected persons</p>
+        </div>
 
-    <table class="table table-bordered table-striped table-hover text-center">
-    <thead class="table-dark">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-        </tr>
-    </thead>
-    <tbody>
-
-        <?php
-        $sql = "SELECT * FROM users";
-        $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td>
-                        <a href='userdetail.php?id={$row['id']}'>
-                            {$row['id']}
-                        </a>
-                      </td>";
-                echo "<td>" . $row['name'] . "</td>";
-                echo "</tr>";
-            }
-        }
-        ?>
-
-    </tbody>
-</table>
-
-
+        <div class="table-card">
+            <table class="custom-table w-100">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $result = mysqli_query($conn, "SELECT * FROM users");
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>
+                            <td>{$row['id']}</td>
+                            <td>{$row['name']}</td>
+                            <td>{$row['email']}</td>
+                            <td>
+                                <a href='userdetail.php?id={$row['id']}' class='btn btn-sm btn-info'>View Profile</a>
+                                <a href='action.php?action=delete_user&id={$row['id']}' onclick='return confirm(\"Delete user?\")' class='btn btn-sm btn-danger'>Delete</a>
+                            </td>
+                        </tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-3">
+            <a href="admindashboard.php" class="btn btn-outline-light">← Back to Dashboard</a>
+        </div>
+    </div>
 </body>
 </html>
