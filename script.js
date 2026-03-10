@@ -1,10 +1,10 @@
-/*function confirmAction(message) {
+function confirmAction(message) {
     return confirm(message);
 }
 
 function showSuccess(message) {
     alert(message);
-}*/
+}
 
 window.addEventListener('scroll', function() {
   const nav = document.querySelector('.navbar');
