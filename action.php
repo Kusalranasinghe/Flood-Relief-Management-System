@@ -8,7 +8,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
 
 
     if ($action == 'accept' ) {
-        $sql = "UPDATE requests SET status = 'accepted' WHERE id = ?";
+        $sql = "UPDATE requests SET status = 'accepted' , act_date = NOW() WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -16,7 +16,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
     }
 
     if ($action == 'reject' ) {
-        $sql = "UPDATE requests SET status = 'rejected' WHERE id = ?";
+        $sql = "UPDATE requests SET status = 'rejected' , act_date = NOW() WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id);
         $stmt->execute();
