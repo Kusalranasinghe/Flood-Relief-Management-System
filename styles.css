@@ -380,9 +380,20 @@ body {
 .request-card input,
 .request-card select,
 .request-card textarea {
-  background: rgba(255, 255, 255, 0.08);
-  border: none;
-  color: white;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: none !important;
+  color: white !important;
+}
+
+.request-card .input-group-text {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: none !important;
+  color: white !important;
+}
+
+.request-card input::placeholder,
+.request-card textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
 }
 
 .request-card input:focus,
@@ -581,4 +592,129 @@ body {
 .custom-table a {
   color: #f97316 !important;
   text-decoration: none;
+}
+::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.admin-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(2, 6, 23, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(249, 115, 22, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.admin-role-badge {
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  color: #fdba74;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.admin-topbar-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-nav-action {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-requests {
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  color: #fdba74;
+}
+
+.btn-requests:hover {
+  background: rgba(249, 115, 22, 0.3);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-users {
+  background: rgba(99, 179, 237, 0.12);
+  border: 1px solid rgba(99, 179, 237, 0.3);
+  color: #93c5fd;
+}
+
+.btn-users:hover {
+  background: rgba(99, 179, 237, 0.25);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-logout-nav {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.btn-logout-nav:hover {
+  background: rgba(239, 68, 68, 0.25);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.section-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #f97316;
+  margin: 40px 0 14px;
+  border-left: 3px solid #f97316;
+  padding-left: 12px;
+}
+
+.dashboard-container {
+  padding-top: 90px !important;
+}
+
+.stats-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.stats-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 20px;
+}
+.request-card select option,
+.register-card select option {
+    background: #0f172a;
+    color: white;
 }
