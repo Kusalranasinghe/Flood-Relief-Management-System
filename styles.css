@@ -308,14 +308,18 @@ body {
 }
 
 .login-card input {
-  background: rgba(255, 255, 255, 0.08);
-  border: none;
-  color: white;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: none !important;
+  color: white !important;
 }
 
+.login-card input::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
 .login-card input:focus {
   background: rgba(255, 255, 255, 0.12);
   box-shadow: none;
+  color: white !important;
 }
 
 .btn-login {
