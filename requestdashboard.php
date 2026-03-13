@@ -24,6 +24,11 @@ include 'database.php';
         </div>
 
         <div class="table-card">
+            <div class="mb-3">
+                <input type="text" id="requestSearch" class="form-control"
+                    placeholder="🔍 Search by district or type..."
+                    style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:white;border-radius:10px;padding:10px 16px;">
+            </div>
             <table class="custom-table w-100">
                 <thead>
                     <tr>
@@ -59,9 +64,18 @@ include 'database.php';
             </table>
         </div>
         <div class="mt-3">
-            <a href="admindashboard.php" class="btn btn-outline-light">← Back to Dashboard</a>
+            <a href="admindashboard.php" class="btn-update" style="border-radius:25px;">← Back to Dashboard</a>
         </div>
     </div>
+    <script>
+        document.getElementById('requestSearch').addEventListener('keyup', function() {
+            const filter = this.value.toLowerCase();
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                row.style.display = row.textContent.toLowerCase().includes(filter) ? '' : 'none';
+            });
+        });
+    </script>
 </body>
 
 </html>
