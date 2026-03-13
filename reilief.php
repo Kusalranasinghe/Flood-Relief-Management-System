@@ -1,7 +1,11 @@
 <?php
-
 include 'database.php';
+session_start();
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: userlogin.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +17,6 @@ include 'database.php';
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <title>Reilief Request</title>
 </head>
 
 <body>
@@ -23,12 +26,8 @@ include 'database.php';
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="request-card">
 
             <h2>Flood Relief Request</h2>
-
-            <div class="mb-3">
-                <label>User ID</label>
-                <input type="text" name="u_id" class="form-control">
-            </div>
-
+            <title>Relief Request</title>
+            <input type="hidden" name="u_id" value="<?php echo $_SESSION['user_id']; ?>">
             <div class="mb-3">
                 <label>Type of Relief</label>
                 <select name="type" class="form-control">
@@ -41,59 +40,93 @@ include 'database.php';
 
             <div class="mb-3">
                 <label>District</label>
-                <input type="text" name="district" class="form-control">
+                <select id="district_select" name="district" class="form-control" onchange="fetchDivisions(this.value)" required>
+                    <option value="">Select District</option>
+                    <option value="Colombo">Colombo</option>
+                    <option value="Gampaha">Gampaha</option>
+                    <option value="Kalutara">Kalutara</option>
+                    <option value="Kandy">Kandy</option>
+                    <option value="Matale">Matale</option>
+                    <option value="Nuwara Eliya">Nuwara Eliya</option>
+                    <option value="Galle">Galle</option>
+                    <option value="Matara">Matara</option>
+                    <option value="Hambantota">Hambantota</option>
+                    <option value="Jaffna">Jaffna</option>
+                    <option value="Kilinochchi">Kilinochchi</option>
+                    <option value="Mannar">Mannar</option>
+                    <option value="Mullaitivu">Mullaitivu</option>
+                    <option value="Vavuniya">Vavuniya</option>
+                    <option value="Trincomalee">Trincomalee</option>
+                    <option value="Batticaloa">Batticaloa</option>
+                    <option value="Ampara">Ampara</option>
+                    <option value="Kurunegala">Kurunegala</option>
+                    <option value="Puttalam">Puttalam</option>
+                    <option value="Anuradhapura">Anuradhapura</option>
+                    <option value="Polonnaruwa">Polonnaruwa</option>
+                    <option value="Badulla">Badulla</option>
+                    <option value="Monaragala">Monaragala</option>
+                    <option value="Ratnapura">Ratnapura</option>
+                    <option value="Kegalle">Kegalle</option>
+                </select>
             </div>
 
             <div class="mb-3">
                 <label>Divisional Secretariat Division</label>
-                <input type="text" name="ds_div" class="form-control">
+                <select id="ds_select" name="ds_div" class="form-control" required>
+                    <option value="">Select District First</option>
+                </select>
             </div>
 
             <div class="mb-3">
                 <label>Grama Niladari Division</label>
-                <input type="text" name="gn_div" class="form-control">
+                <input type="text" name="gn_div" class="form-control" placeholder="Enter your GN Division">
             </div>
 
             <div class="mb-3">
                 <label>Person's Name</label>
-                <input type="text" name="name" class="form-control">
+                <input type="text" name="name" class="form-control" placeholder="Enter contact person's full name">
             </div>
 
             <div class="mb-3">
                 <label>Telephone</label>
-                <input type="text" name="telephone" class="form-control">
+                <div class="input-group">
+                    <span class="input-group-text" style="background:rgba(255,255,255,0.08);border:none;color:white;">+94</span>
+                    <input type="number" name="telephone" id="phone_input" class="form-control" placeholder="7XXXXXXXX" maxlength="9" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,9)">
+                </div>
+                <small id="phone_error" style="color:#ff4d4d;display:none;">Please enter exactly 9 digits.</small>
             </div>
 
             <div class="mb-3">
                 <label>Address</label>
-                <input type="text" name="address" class="form-control">
+                <input type="text" name="address" class="form-control" placeholder="Enter your full address">
             </div>
 
             <div class="mb-3">
                 <label>Number of Family Members</label>
-                <input type="number" name="no_of_members" class="form-control">
+                <input type="number" name="no_of_members" id="members_input" class="form-control" min="1" placeholder="Enter number of family members">
+                <small id="members_error" style="color:#ff4d4d;display:none;">Must be a positive number (greater than 0).</small>
             </div>
 
             <div class="mb-3">
                 <label>Flood Severity Level</label>
                 <select name="sev_level" class="form-control">
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
+                    <option value="low">🟡 Low — Below knee level</option>
+                    <option value="medium">🟠 Medium — Knee to chest level</option>
+                    <option value="high">🔴 High — Above chest level</option>
                 </select>
             </div>
 
             <div class="mb-3">
                 <label>Description</label>
-                <textarea name="description" class="form-control"></textarea>
+                <textarea name="description" class="form-control" placeholder="Mention any additional or special requirements here..."></textarea>
             </div>
 
             <button type="submit" class="btn-request">Send Request</button>
-
+            <a href="userdashboard.php" style="display:block;text-align:center;margin-top:12px;color:#f97316;font-size:14px;">← Back to Dashboard</a>
         </form>
 
     </div>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
@@ -114,14 +147,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sev_level = $_POST['sev_level'];
     $description = $_POST['description'];
 
-    if (empty($u_id) || empty($type) || empty($district) || empty($ds_div) || empty($gn_div) || empty($name) || empty($telephone) || empty($address) || empty($no_of_members) || empty($sev_level) || empty($description)) {
-        echo "<script>alert('All fields are required.');</script>";
+    if (empty($type) || empty($district) || empty($ds_div) || empty($gn_div) || empty($name) || empty($telephone) || empty($address) || empty($no_of_members) || empty($sev_level)) {
+        echo "<script>alert('Please fill in all required fields.');</script>";
         exit;
-
     }
-
-    if (!is_numeric($u_id) || !is_numeric($telephone) || !is_numeric($no_of_members)) {
-        echo "<script>alert('User ID, Telephone and Number of family members must be numeric.');</script>";
+    if (!is_numeric($telephone) || !is_numeric($no_of_members)) {
+        echo "<script>alert('Telephone and Number of family members must be numeric.');</script>";
         exit;
     }
 
@@ -132,16 +163,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO requests (user_id, type, district, ds_div, gn_div, name, telephone, address, no_of_fmembers, sev_level, description, status) VALUES ('$u_id', '$type', '$district', '$ds_div', '$gn_div', '$name', '$telephone', '$address', '$no_of_members', '$sev_level', '$description', 'pending')";
 
         mysqli_query($conn, $sql);
-        echo "<script>
-        alert('Request submitted successfully.');
-        window.location.href='userdashboard.php';
-      </script>";
-
+echo "<script>
+    alert('Your relief request has been submitted successfully.');
+    window.location.href='userdashboard.php';
+</script>";
 
         mysqli_close($conn);
-
     }
-
 }
 
 ?>
