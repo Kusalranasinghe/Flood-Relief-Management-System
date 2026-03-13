@@ -134,7 +134,7 @@ body {
   font-size: 17px;
 }
 
-.footer {
+#footer {
   padding: 40px 60px;
 }
 
@@ -331,7 +331,7 @@ body {
 
 .btn-login:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 15px #f97316;
+  box-shadow: 1px 1px 5px #f97316;
 }
 
 .signup-text {
@@ -416,7 +416,7 @@ body {
 
 .btn-request:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 15px #f97316;
+  box-shadow: 1px 1px 5px #f97316;
 }
 
 .form1 {
@@ -473,7 +473,7 @@ body {
 
 .btn-register:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 15px #f97316;
+  box-shadow: 1px 1px 5px #f97316;
 }
 
 .dashboard-container {
@@ -555,8 +555,9 @@ body {
     gap: 20px;
 }
 
-.btn-update,
-.btn-success,
+
+.btn-delete,
+
 .btn-frequest,
 .start-btn {
   background: linear-gradient(90deg, #ea580c, #f97316) !important;
@@ -568,6 +569,20 @@ body {
   display: inline-block;
   text-decoration: none;
 }
+
+.btn-update,
+.btn-success {
+  background-color: green;
+   border: none !important;
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  text-decoration: none;
+}
+
+
 
 .btn-logout {
   padding: 10px 20px;

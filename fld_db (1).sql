@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2026 at 11:06 AM
+-- Generation Time: Mar 11, 2026 at 09:20 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -59,6 +59,7 @@ CREATE TABLE `requests` (
   `sev_level` varchar(20) NOT NULL,
   `description` varchar(255) NOT NULL,
   `req_date` date NOT NULL DEFAULT current_timestamp(),
+  `act_date` date DEFAULT NULL,
   `user_id` int(20) NOT NULL,
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -67,18 +68,24 @@ CREATE TABLE `requests` (
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`id`, `type`, `district`, `ds_div`, `gn_div`, `name`, `telephone`, `address`, `no_of_fmembers`, `sev_level`, `description`, `req_date`, `user_id`, `status`) VALUES
-(2, 'medicine', 'kalutara', 'dodangoda', '800-d', 'disal', '222', 'kalutara', 10, 'high', 'test2', '2026-01-23', 0, 'accepted'),
-(3, 'food', 'colombo', 'rathmalana', '800-d', 'tharusha', '07899999999', 'kalutara', 10, 'medium', 'test3', '2026-01-23', 0, ''),
-(4, 'shelter', 'colombo', 'rathmalana', '800-d', 'disal', '07899999999', 'kalutara', 20, 'low', 'test', '2026-01-23', 0, ''),
-(5, 'shelter', 'colombo', 'rathmalana', '800-d', 'disal', '07899999999', 'kalutara', 20, 'low', 'test', '2026-01-23', 0, ''),
-(10, 'medical', 'kalutara', 'nagoda', '800-d', 'disal', '0778767787', 'galle', 10, 'High', 'test1', '2026-01-24', 1, ''),
-(11, 'shelter', 'kalutara', 'nagoda', '800-d', 'nimal', '0345434543', 'matara', 10, 'Medium', 'test1', '2026-01-24', 1, ''),
-(12, 'food', 'kandy', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'kalutara', 10, 'high', 'test1', '2026-02-06', 2, 'accepted'),
-(13, 'food', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0787996831', 'matara', 10, 'low', 'test1', '2026-02-06', 2, 'accepted'),
-(14, 'food', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0778767787', 'kalutara', 10, 'low', 'test1', '2026-02-06', 9, 'accepted'),
-(15, 'food', 'Gampaha', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'jjj', 10, 'High', 'test1', '2026-02-06', 9, 'pending'),
-(16, 'food', 'galle', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'galle', 10, 'low', 'test1', '2026-02-06', 2, 'pending');
+INSERT INTO `requests` (`id`, `type`, `district`, `ds_div`, `gn_div`, `name`, `telephone`, `address`, `no_of_fmembers`, `sev_level`, `description`, `req_date`, `act_date`, `user_id`, `status`) VALUES
+(2, 'medicine', 'kalutara', 'dodangoda', '800-d', 'disal', '222', 'kalutara', 10, 'high', 'test2', '2026-01-23', NULL, 0, 'accepted'),
+(3, 'food', 'colombo', 'rathmalana', '800-d', 'tharusha', '07899999999', 'kalutara', 10, 'medium', 'test3', '2026-01-23', NULL, 0, ''),
+(4, 'shelter', 'colombo', 'rathmalana', '800-d', 'disal', '07899999999', 'kalutara', 20, 'low', 'test', '2026-01-23', NULL, 0, ''),
+(5, 'shelter', 'colombo', 'rathmalana', '800-d', 'disal', '07899999999', 'kalutara', 20, 'low', 'test', '2026-01-23', NULL, 0, ''),
+(10, 'medical', 'kalutara', 'nagoda', '800-d', 'disal', '0778767787', 'galle', 10, 'High', 'test1', '2026-01-24', NULL, 1, ''),
+(11, 'shelter', 'kalutara', 'nagoda', '800-d', 'nimal', '0345434543', 'matara', 10, 'Medium', 'test1', '2026-01-24', NULL, 1, ''),
+(12, 'food', 'kandy', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'kalutara', 10, 'high', 'test1', '2026-02-06', NULL, 2, 'accepted'),
+(13, 'food', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0787996831', 'matara', 10, 'low', 'test1', '2026-02-06', NULL, 2, 'accepted'),
+(14, 'food', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0778767787', 'kalutara', 10, 'low', 'test1', '2026-02-06', NULL, 9, 'accepted'),
+(15, 'food', 'Gampaha', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'jjj', 10, 'High', 'test1', '2026-02-06', NULL, 9, 'accepted'),
+(16, 'food', 'galle', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'galle', 10, 'low', 'test1', '2026-02-06', '2026-03-11', 2, 'accepted'),
+(17, 'food', 'kalutara', 'nagoda', '800-d', 'maleesa', '0787996831', 'colombo', 10, 'medium', 'test1', '2026-02-20', NULL, 7, 'pending'),
+(18, 'food', 'colombo', 'rathmalana', '800-d', 'disal', '07899999999', 'kalutara', 4, 'Low', 'test2', '2026-03-08', NULL, 9, 'accepted'),
+(19, 'medicine', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'colombo', 10, 'medium', 'test', '2026-03-09', NULL, 9, 'pending'),
+(20, 'shelter', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0787996831', 'colombo', 7, 'high', 'test', '2026-03-09', NULL, 9, 'accepted'),
+(21, 'water', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0778767787', 'colombo', 10, 'high', 'tst', '2026-03-11', NULL, 9, 'accepted'),
+(22, 'food', 'kandy', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0778767787', 'kalutara', 10, 'low', 'tst', '2026-03-11', '2026-03-11', 9, 'accepted');
 
 -- --------------------------------------------------------
 
@@ -148,7 +155,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`

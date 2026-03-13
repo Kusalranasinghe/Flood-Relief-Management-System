@@ -26,8 +26,7 @@ session_start();
 
         <nav>
             <a href="index.php">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#footer">Contact</a>
 
             <button class="start-btn" onclick="window.location.href='adminlogin.php'">Admin</button>
 
@@ -69,52 +68,7 @@ session_start();
 
     </div>
 
-    <footer class="footer">
-
-        <div class="footer-container">
-
-            <div class="footer-col">
-                <h2>Flood Relief Center</h2>
-                <p>No.77/5,<br>
-                    Galle Rd,<br>
-                    Mt Lavinia,<br>
-                    Sri Lanka.
-                </p>
-            </div>
-
-            <div class="footer-col">
-                <h3 style="color: red;">Emergency Help</h3>
-                <ul style="font-size: 19px;">
-                    <li>+94112420250</li>
-                    <li>+94112220938</li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Resources</h3>
-                <ul>
-                    <li><a href="#">Safety Guidelines</a></li>
-                    <li><a href="#">Relief Centers</a></li>
-                    <li><a href="#">Donate</a></li>
-                    <li><a href="#">Volunteer</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Legal</h3>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 Flood Relief Support Center | All Rights Reserved</p>
-        </div>
-
-    </footer>
+    <?php include 'footer.php'; ?>
 
     <script src="script.js"></script>
 </body>
@@ -131,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if (empty($email) || empty($password)) {
-        echo "All fields are required.";
+        echo "<script>alert('Please fill in all fields.');</script>";
         exit;
     } else {
 
@@ -152,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             exit;
         } else {
-            echo "Invalid email or password.";
+            echo "<script>alert('Invalid email or password.');</script>";
         }
     }
 
