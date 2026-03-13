@@ -230,12 +230,13 @@ body {
 }
 
 .stat-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01));
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04));
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 16px;
     padding: 30px;
     text-align: center;
     transition: 0.3s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
 .stat-card:hover {
@@ -244,14 +245,16 @@ body {
 }
 
 .stat-card h5 {
-    color: #cbd5f5;
+    color: #e2e8f0;
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .stat-card h2 {
     font-size: 48px;
-    color: #f97316;
+    color: white;
 }
 
 .stat-card.urgent {
@@ -659,7 +662,7 @@ body {
   align-items: center;
   gap: 7px;
   padding: 8px 18px;
-  border-radius: 8px;
+  border-radius: 25px;
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -736,4 +739,206 @@ body {
 .register-card select option {
     background: #0f172a;
     color: white;
+}
+
+.section-link {
+    font-size: 12px;
+    color: #f97316;
+    text-decoration: none;
+    margin-left: 12px;
+    font-weight: normal;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.section-link:hover {
+    text-decoration: underline;
+}
+
+/* ===== TOPBAR BUTTON STYLES ===== */
+.btn-nav-white {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.btn-nav-white:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-nav-white-danger {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.btn-nav-white-danger:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+    transform: translateY(-1px);
+}
+/* ===== ADMIN PROFILE ===== */
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 8px;
+}
+
+.admin-avatar {
+    font-size: 18px;
+    background: rgba(249, 115, 22, 0.15);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-name {
+    font-size: 13px;
+    color: #cbd5f5;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ===== REPORT ACTION BUTTONS ===== */
+.report-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.btn-report-link {
+    font-size: 13px;
+    color: white;
+    text-decoration: none;
+    padding: 7px 18px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: 0.25s;
+}
+
+.btn-report-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.btn-back-blue {
+    font-size: 13px;
+    color: #93c5fd;
+    text-decoration: none;
+    padding: 7px 18px;
+    border-radius: 8px;
+    background: rgba(99, 179, 237, 0.1);
+    border: 1px solid rgba(99, 179, 237, 0.25);
+    transition: 0.25s;
+    display: inline-block;
+}
+
+.btn-back-blue:hover {
+    background: rgba(99, 179, 237, 0.2);
+    color: white;
+}
+
+/* ===== REPORT PAGE STYLES ===== */
+.report-header-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.report-header-left {
+    flex: 1;
+}
+
+.report-org-name {
+    font-size: 12px;
+    color: #f97316;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.report-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.report-subtitle {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.report-generated {
+    text-align: right;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+}
+
+.report-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.report-meta-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.report-meta-card.urgent {
+    border-color: rgba(239,68,68,0.3);
+    background: rgba(239,68,68,0.05);
+}
+
+.report-meta-label {
+    font-size: 12px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.report-meta-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+}
+
+.report-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 12px;
+    color: #475569;
 }
