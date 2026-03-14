@@ -18,39 +18,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $district = $_POST['district'];
     $password = $_POST['password'];
 
-    if (empty($name) || empty($nic) || empty($address) || empty($telephone) || empty($email) || empty($district) || empty($password)) {
-        $reg_error = "All fields are required.";
-    } elseif (!empty($email)) {
-        if (
-            !filter_var($email, FILTER_VALIDATE_EMAIL) ||
-            !preg_match('/@(gmail\.com|yahoo\.com|hotmail\.com|outlook\.com|icloud\.com|live\.com)$/i', $email)
-        ) {
-            $reg_error = "Please use a valid email (Gmail, Yahoo, Hotmail, Outlook, iCloud or Live).";
-        }
+    if (empty($name) || empty($nic) || empty($address) || empty($telephone) || empty($district) || empty($password)) {
+        $reg_error = "All fields are required except email.";
     } elseif (!preg_match('/^([0-9]{9}[VvXx]|[0-9]{12})$/', $nic)) {
         $reg_error = "NIC must be 9 digits followed by V or X, or 12 digits.";
     } elseif (!is_numeric($telephone) || strlen($telephone) != 9) {
         $reg_error = "Contact number must be exactly 9 digits after +94.";
     } elseif (strlen($password) < 6) {
         $reg_error = "Password must be at least 6 characters.";
+    } elseif (!empty($email) && (
+        !filter_var($email, FILTER_VALIDATE_EMAIL) ||
+        !preg_match('/@(gmail\.com|yahoo\.com|hotmail\.com|outlook\.com|icloud\.com|live\.com)$/i', $email)
+    )) {
+        $reg_error = "Please use a valid email (Gmail, Yahoo, Hotmail, Outlook, iCloud or Live).";
     } else {
-
-
         $checkEmail = mysqli_query($conn, "SELECT id FROM users WHERE email='$email'");
-        if (mysqli_num_rows($checkEmail) > 0) {
+        if (!empty($email) && mysqli_num_rows($checkEmail) > 0) {
             $reg_error = "This email is already registered. Please login.";
         } else {
             $sql = "INSERT INTO users (name, nic, address, telephone, email, district, password) 
-                    VALUES ('$name', '$nic', '$address', '$telephone', '$email', '$district', '$password')";
+                VALUES ('$name', '$nic', '$address', '$telephone', '$email', '$district', '$password')";
             mysqli_query($conn, $sql);
             echo "<script>
-                alert(' Registration successful. Please login.');
-                window.location.href='userlogin.php';
-            </script>";
+            alert('Registration successful. Please login.');
+            window.location.href='userlogin.php';
+        </script>";
             exit;
         }
     }
-    mysqli_close($conn);
+    sqli_close($conn);
 }
 ?>
 
@@ -131,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <span id="reg_phone_tick" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
                     </div>
-                    <small id="reg_phone_error" style="color:#ff4d4d;display:none;">⚠️ Please enter exactly 9 digits.</small>
+                    <small id="reg_phone_error" style="color:#ff4d4d;display:none;"> Please enter exactly 9 digits.</small>
                 </div>
 
                 <div class="mb-3">

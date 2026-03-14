@@ -13,25 +13,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if (empty($email) || empty($password)) {
-        $login_error = "Please fill in all fields.";
-    } else {
-        $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-        $result = mysqli_query($conn, $sql);
+    $nic = trim($_POST['nic']);
+$password = $_POST['password'];
 
-        if (mysqli_num_rows($result) == 1) {
-            $row = mysqli_fetch_assoc($result);
-            $_SESSION['user_id'] = $row['id'];
-            $_SESSION['user_name'] = $row['name'];
-            $_SESSION['email'] = $row['email'];
-            header("Location: userdashboard.php");
-            exit;
-        } else {
-            $login_error = "Invalid email or password. Please try again.";
-        }
+if (empty($nic) || empty($password)) {
+    $login_error = "Please fill in all fields.";
+} else {
+    $sql = "SELECT * FROM users WHERE nic='$nic' AND password='$password'";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['user_name'] = $row['name'];
+        $_SESSION['email'] = $row['email'];
+        header("Location: userdashboard.php");
+        exit;
+    } else {
+        $login_error = "Invalid NIC or password. Please try again.";
     }
+}}
     mysqli_close($conn);
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -64,8 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p style="color:#94a3b8;font-size:13px;text-align:center;margin-bottom:20px;">Sign in to submit or manage your relief requests</p>
 
                 <div class="mb-3">
-                    <label>Email</label>
-                    <input type="text" name="email" class="form-control" placeholder="Enter your email">
+                    <label>NIC Number</label>
+                    <input type="text" name="nic" class="form-control" placeholder="Enter your NIC number">
                 </div>
 
                 <div class="mb-3">
