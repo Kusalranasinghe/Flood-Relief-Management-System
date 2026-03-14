@@ -10,11 +10,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="has-video">
+
+    <!-- VIDEO BACKGROUND -->
+    <div class="video-bg-wrapper">
+        <video autoplay muted loop playsinline class="video-bg">
+            <source src="flood.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
 
     <header class="navbar">
-        <div class="logo">#HelpSriLanka </div>
-
+        <div class="logo">#HelpSriLanka</div>
         <nav>
             <a href="index.php">Home</a>
             <a href="#about">About</a>
@@ -24,45 +31,36 @@
     </header>
 
     <section class="hero">
-        <div class="badge"> Emergency Flood Help and Resources</div>
+        <div class="badge">🔴 Emergency Flood Help and Resources</div>
         <h1>
             FLOOD RELIEF<br>
             <span>SUPPORT CENTER</span>
         </h1>
-
         <p>
             Digital platform supporting flood affected people by
             coordinating relief services, information, and emergency assistance
         </p>
-
         <div class="buttons">
             <button class="primary" onclick="window.location.href='userlogin.php'">SIGN IN</button>
             <button class="secondary" onclick="window.location.href='userregister.php'">REGISTER</button>
         </div>
-
     </section>
 
     <div class="section-divider"></div>
 
     <section id="about">
-
         <div class="about-container">
-
             <h1 class="about-title">About Us</h1>
-
             <p class="about-text">
                 The Flood Relief Management Center is a digital platform dedicated to supporting communities affected by
                 floods by providing timely information, coordination of relief services, and emergency assistance.
                 Our goal is to connect victims, volunteers, and relief organizations in one centralized system to
                 ensure faster response and efficient distribution of resources.
             </p>
-
         </div>
-
     </section>
 
     <?php include 'footer.php'; ?>
-
     <script src="script.js"></script>
 </body>
 

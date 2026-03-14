@@ -45,7 +45,7 @@ if (phoneInput) {
   phoneInput.addEventListener("input", function () {
     this.value = this.value.replace(/[^0-9]/g, "").slice(0, 9);
     if (this.value.length > 0 && this.value.length < 9) {
-      phoneError.textContent = "⚠️ Please enter exactly 9 digits.";
+      phoneError.textContent = " Please enter exactly 9 digits.";
       phoneError.style.display = "block";
     } else {
       phoneError.style.display = "none";
@@ -54,7 +54,7 @@ if (phoneInput) {
 
   phoneInput.addEventListener("keypress", function (e) {
     if (!/[0-9]/.test(e.key)) {
-      phoneError.textContent = "⚠️ Numbers only. Letters are not allowed.";
+      phoneError.textContent = " Numbers only. Letters are not allowed.";
       phoneError.style.display = "block";
       e.preventDefault();
     }
@@ -78,7 +78,7 @@ if (membersInput) {
 
   membersInput.addEventListener("keypress", function (e) {
     if (!/[0-9]/.test(e.key)) {
-      membersError.textContent = "⚠️ Numbers only. Letters are not allowed.";
+      membersError.textContent = " Numbers only. Letters are not allowed.";
       membersError.style.display = "block";
       e.preventDefault();
     }
@@ -185,23 +185,33 @@ const regPhoneInput = document.getElementById("reg_phone_input");
 const regPhoneError = document.getElementById("reg_phone_error");
 
 if (regPhoneInput) {
-  regPhoneInput.addEventListener("input", function () {
-    this.value = this.value.replace(/[^0-9]/g, "").slice(0, 9);
-    if (this.value.length > 0 && this.value.length < 9) {
-      regPhoneError.textContent = " Please enter exactly 9 digits.";
-      regPhoneError.style.display = "block";
-    } else {
-      regPhoneError.style.display = "none";
-    }
-  });
+    regPhoneInput.addEventListener('input', function () {
+        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 9);
+        const regPhoneTick = document.getElementById('reg_phone_tick');
+        if (this.value.length === 0) {
+            regPhoneError.style.display = 'none';
+            regPhoneTick.style.display = 'none';
+        } else if (this.value.length < 9) {
+            regPhoneError.textContent = ' Please enter exactly 9 digits.';
+            regPhoneError.style.display = 'block';
+            regPhoneTick.style.display = 'none';
+        } else {
+            regPhoneError.style.display = 'none';
+            regPhoneTick.style.display = 'block';
+        }
+    });
 
-  regPhoneInput.addEventListener("keypress", function (e) {
-    if (!/[0-9]/.test(e.key)) {
-      regPhoneError.textContent = " Numbers only. Letters are not allowed.";
-      regPhoneError.style.display = "block";
-      e.preventDefault();
-    }
-  });
+    regPhoneInput.addEventListener('keypress', function (e) {
+        const regPhoneTick = document.getElementById('reg_phone_tick');
+        if (!/[0-9]/.test(e.key)) {
+            //error at less than 9 numbers
+            if (regPhoneInput.value.length < 9) {
+                regPhoneError.textContent = ' Numbers only. Letters are not allowed.';
+                regPhoneError.style.display = 'block';
+            }
+            e.preventDefault();
+        }
+    });
 }
 
 //pw validation-user reg
@@ -209,11 +219,17 @@ const regPassword = document.getElementById("reg_password");
 const regPasswordError = document.getElementById("reg_password_error");
 
 if (regPassword) {
-  regPassword.addEventListener("input", function () {
-    if (this.value.length > 0 && this.value.length < 6) {
-      regPasswordError.style.display = "block";
-    } else {
-      regPasswordError.style.display = "none";
-    }
-  });
+    regPassword.addEventListener('input', function () {
+        const passwordTick = document.getElementById('password_tick');
+        if (this.value.length === 0) {
+            regPasswordError.style.display = 'none';
+            passwordTick.style.display = 'none';
+        } else if (this.value.length < 6) {
+            regPasswordError.style.display = 'block';
+            passwordTick.style.display = 'none';
+        } else {
+            regPasswordError.style.display = 'none';
+            passwordTick.style.display = 'block';
+        }
+    });
 }
