@@ -122,13 +122,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="mb-3">
                     <label>Contact Number</label>
-                    <div class="input-group">
-                        <span class="input-group-text" style="background:rgba(255,255,255,0.08);border:none;color:white;">+94</span>
-                        <input type="text" name="telephone" id="reg_phone_input" class="form-control"
-                            placeholder="7XXXXXXXX" maxlength="9"
-                            value="<?php echo isset($_POST['telephone']) ? htmlspecialchars($_POST['telephone']) : ''; ?>">
+                    <div style="position:relative;">
+                        <div class="input-group">
+                            <span class="input-group-text" style="background:rgba(255,255,255,0.08);border:none;color:white;">+94</span>
+                            <input type="text" name="telephone" id="reg_phone_input" class="form-control"
+                                placeholder="7XXXXXXXX" maxlength="9"
+                                value="<?php echo isset($_POST['telephone']) ? htmlspecialchars($_POST['telephone']) : ''; ?>">
+                        </div>
+                        <span id="reg_phone_tick" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
                     </div>
-                    <small id="reg_phone_error" style="color:#ff4d4d;display:none;"> Please enter exactly 9 digits.</small>
+                    <small id="reg_phone_error" style="color:#ff4d4d;display:none;">⚠️ Please enter exactly 9 digits.</small>
                 </div>
 
                 <div class="mb-3">
@@ -138,12 +141,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
                         <span id="email_tick" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
                     </div>
-                    <small id="reg_email_error" style="color:#ff4d4d;display:none;">⚠️ Please enter a valid email address.</small>
+                    <small id="reg_email_error" style="color:#ff4d4d;display:none;"> Please enter a valid email address.</small>
                 </div>
 
                 <div class="mb-3">
                     <label>Password</label>
-                    <input type="password" name="password" id="reg_password" class="form-control" placeholder="Create a password">
+                    <div style="position:relative;">
+                        <input type="password" name="password" id="reg_password" class="form-control" placeholder="Create a password">
+                        <span id="password_tick" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
+                    </div>
                     <small id="reg_password_error" style="color:#ff4d4d;display:none;"> Password must be at least 6 characters.</small>
                 </div>
 

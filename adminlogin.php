@@ -9,8 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     if (empty($email) || empty($password)) {
-        echo "<script>alert('Please fill in all fields.');</script>";
-        exit;
+        $login_error = "Please fill in all fields.";
     } else {
         $sql = "SELECT * FROM admin WHERE email='$email' AND password='$password'";
         $result = mysqli_query($conn, $sql);
@@ -55,8 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="form">
         <div class="login-container">
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="login-card">
-                <div class="badge" style="margin-bottom: 20px; display: block; text-align: center;">🔒 Secure Admin Access</div>
-
+                <div class="badge" style="margin-bottom: 20px; display: inline-block; width: 100%; text-align: center; font-size: 15px; font-weight: 600; padding: 10px 24px; border-radius: 30px; letter-spacing: 0.5px;">🔒 Secure Admin Access</div>
                 <div class="mb-3">
                     <label>Administrator Email</label>
                     <input type="text" name="email" id="admin_email" class="form-control" placeholder="Enter administrator email">
