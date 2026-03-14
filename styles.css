@@ -27,7 +27,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.65;
+  opacity: 0.9;
 }
 
 .video-overlay {
@@ -987,4 +987,62 @@ body.has-video {
 /*placeholde colour*/
 ::placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
+}
+
+
+/*request dashboard action buttons*/
+.btn-action-accept {
+    display: inline-block !important;
+    padding: 5px 14px !important;
+    border-radius: 20px !important;
+    background: transparent !important;
+    border: 1px solid rgba(34, 197, 94, 0.5) !important;
+    color: #22c55e !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: 0.2s;
+}
+
+.btn-action-accept:hover {
+    background: rgba(34, 197, 94, 0.1) !important;
+    color: #22c55e !important;
+}
+
+.btn-action-reject {
+    display: inline-block !important;
+    padding: 5px 14px !important;
+    border-radius: 20px !important;
+    background: transparent !important;
+    border: 1px solid rgba(239, 68, 68, 0.5) !important;
+    color: #ef4444 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: 0.2s;
+}
+
+.btn-action-reject:hover {
+    background: rgba(239, 68, 68, 0.1) !important;
+    color: #ef4444 !important;
+}
+
+/* ===== FADED VIEW FULL REPORT LINK ===== */
+.report-fade-link {
+    text-align: center;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.report-fade-link a {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.report-fade-link a:hover {
+    color: rgba(150, 213, 228, 0.7);
 }
