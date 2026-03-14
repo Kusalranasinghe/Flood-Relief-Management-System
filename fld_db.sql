@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 13, 2026 at 02:13 PM
+-- Generation Time: Mar 14, 2026 at 10:50 AM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.30
 
@@ -38,7 +38,52 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `email`, `password`) VALUES
-(1, 'kusal@gmail.com', '123');
+(4, 'kusal@gmail.com', 'Kusal@001'),
+(5, 'imesha@gmail.com', 'Imesha@002'),
+(6, 'maleesha@gmail.com', 'Maleesha@003'),
+(7, 'methmi@gmail.com', 'Methmi@004');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `districts`
+--
+
+CREATE TABLE `districts` (
+  `id` int NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `districts`
+--
+
+INSERT INTO `districts` (`id`, `name`) VALUES
+(1, 'Colombo'),
+(2, 'Gampaha'),
+(3, 'Kalutara'),
+(4, 'Kandy'),
+(5, 'Matale'),
+(6, 'Nuwara Eliya'),
+(7, 'Galle'),
+(8, 'Matara'),
+(9, 'Hambantota'),
+(10, 'Jaffna'),
+(11, 'Kilinochchi'),
+(12, 'Mannar'),
+(13, 'Mullaitivu'),
+(14, 'Vavuniya'),
+(15, 'Trincomalee'),
+(16, 'Batticaloa'),
+(17, 'Ampara'),
+(18, 'Kurunegala'),
+(19, 'Puttalam'),
+(20, 'Anuradhapura'),
+(21, 'Polonnaruwa'),
+(22, 'Badulla'),
+(23, 'Monaragala'),
+(24, 'Ratnapura'),
+(25, 'Kegalle');
 
 -- --------------------------------------------------------
 
@@ -443,7 +488,8 @@ INSERT INTO `requests` (`id`, `type`, `district`, `ds_div`, `gn_div`, `name`, `t
 (24, 'food', 'Gampaha', 'Attanagalla', 'sdf', 'imesha', '788555788', 'hghjgjhhjj', 3, 'low', '', '2026-03-13 15:46:38', NULL, 9, 'pending'),
 (25, 'medicine', 'Hambantota', 'Tangalle', 'hghjjn', 'ddffggh', '895524444', 'dfdf', 4, 'low', '', '2026-03-13 15:48:18', NULL, 9, 'pending'),
 (26, 'food', 'Matara', 'Thihagoda', 'abcd', 'iMESHA', '575425788', 'dsfjhslfk', 5, 'Low', '', '2026-03-13 16:39:29', NULL, 10, 'pending'),
-(27, 'food', 'Hambantota', 'Walasmulla', 'sfdfs', 'sdfsdgf', '765435453', 'sdfsdfsdfds', 2, 'high', '', '2026-03-13 18:57:21', NULL, 10, 'pending');
+(27, 'food', 'Hambantota', 'Walasmulla', 'sfdfs', 'sdfsdgf', '765435453', 'sdfsdfsdfds', 2, 'high', '', '2026-03-13 18:57:21', NULL, 10, 'pending'),
+(28, 'shelter', 'Matale', 'Matale', 'gn div test', 'tharushi perera', '786221122', 'no 03, matale', 3, 'medium', '', '2026-03-14 14:17:55', NULL, 10, 'pending');
 
 -- --------------------------------------------------------
 
@@ -476,7 +522,8 @@ INSERT INTO `users` (`id`, `name`, `nic`, `email`, `telephone`, `address`, `dist
 (7, 'maleesa', '201831811106', 'm@gmail.com', '0787996831', 'matara', '', '123', '2026-02-03 00:00:00'),
 (8, 'sadun', '201831811106', 's@gmail.com', '0778767787', 'kandy', 'kandy', 'sss', '2026-02-05 00:00:00'),
 (9, 'Kusal D Ranasinghe', '201831811106', 'p@gmail.com', '0778767787', 'kalutara', 'kalutara', '111', '2026-02-06 00:00:00'),
-(10, 'Imesha', '120125', 'imesha@gmail.com', '23687', 'sbadkj', 'sdjf', '123', '2026-03-13 16:37:57');
+(10, 'Imesha', '120125', 'imesha@gmail.com', '23687', 'sbadkj', 'sdjf', '123', '2026-03-13 16:37:57'),
+(11, 'dfdf', '454454545454', 'fgfchghgjhjbhjbhjk@gmail.comm', '757878787', 'fg', 'Ampara', '123456', '2026-03-14 15:29:43');
 
 --
 -- Indexes for dumped tables
@@ -486,6 +533,12 @@ INSERT INTO `users` (`id`, `name`, `nic`, `email`, `telephone`, `address`, `dist
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `districts`
+--
+ALTER TABLE `districts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -514,7 +567,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `districts`
+--
+ALTER TABLE `districts`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `ds_divisions`
@@ -526,13 +585,13 @@ ALTER TABLE `ds_divisions`
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
