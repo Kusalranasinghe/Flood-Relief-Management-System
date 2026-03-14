@@ -42,31 +42,12 @@ if (!isset($_SESSION['user_id'])) {
                 <label>District</label>
                 <select id="district_select" name="district" class="form-control" onchange="fetchDivisions(this.value)" required>
                     <option value="">Select District</option>
-                    <option value="Colombo">Colombo</option>
-                    <option value="Gampaha">Gampaha</option>
-                    <option value="Kalutara">Kalutara</option>
-                    <option value="Kandy">Kandy</option>
-                    <option value="Matale">Matale</option>
-                    <option value="Nuwara Eliya">Nuwara Eliya</option>
-                    <option value="Galle">Galle</option>
-                    <option value="Matara">Matara</option>
-                    <option value="Hambantota">Hambantota</option>
-                    <option value="Jaffna">Jaffna</option>
-                    <option value="Kilinochchi">Kilinochchi</option>
-                    <option value="Mannar">Mannar</option>
-                    <option value="Mullaitivu">Mullaitivu</option>
-                    <option value="Vavuniya">Vavuniya</option>
-                    <option value="Trincomalee">Trincomalee</option>
-                    <option value="Batticaloa">Batticaloa</option>
-                    <option value="Ampara">Ampara</option>
-                    <option value="Kurunegala">Kurunegala</option>
-                    <option value="Puttalam">Puttalam</option>
-                    <option value="Anuradhapura">Anuradhapura</option>
-                    <option value="Polonnaruwa">Polonnaruwa</option>
-                    <option value="Badulla">Badulla</option>
-                    <option value="Monaragala">Monaragala</option>
-                    <option value="Ratnapura">Ratnapura</option>
-                    <option value="Kegalle">Kegalle</option>
+                    <?php
+                    $distRes = mysqli_query($conn, "SELECT name FROM districts ORDER BY name ASC");
+                    while ($distRow = mysqli_fetch_assoc($distRes)) {
+                        echo "<option value='{$distRow['name']}'>{$distRow['name']}</option>";
+                    }
+                    ?>
                 </select>
             </div>
 
@@ -163,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO requests (user_id, type, district, ds_div, gn_div, name, telephone, address, no_of_fmembers, sev_level, description, status) VALUES ('$u_id', '$type', '$district', '$ds_div', '$gn_div', '$name', '$telephone', '$address', '$no_of_members', '$sev_level', '$description', 'pending')";
 
         mysqli_query($conn, $sql);
-echo "<script>
+        echo "<script>
     alert('Your relief request has been submitted successfully.');
     window.location.href='userdashboard.php';
 </script>";
