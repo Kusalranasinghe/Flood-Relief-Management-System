@@ -1,11 +1,38 @@
 <?php
-
 include 'database.php';
 session_start();
 
+if (isset($_SESSION['user_id'])) {
+    header("Location: userdashboard.php");
+    exit;
+}
 
+$login_error = null;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    if (empty($email) || empty($password)) {
+        $login_error = "Please fill in all fields.";
+    } else {
+        $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) == 1) {
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['user_name'] = $row['name'];
+            $_SESSION['email'] = $row['email'];
+            header("Location: userdashboard.php");
+            exit;
+        } else {
+            $login_error = "Invalid email or password. Please try again.";
+        }
+    }
+    mysqli_close($conn);
+}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,40 +47,37 @@ session_start();
 </head>
 
 <body>
-
     <header class="navbar" style="padding: 20px; padding-left: 80px; padding-right: 80px;">
-        <div class="logo">#HelpSriLanka </div>
-
+        <div class="logo">#HelpSriLanka</div>
         <nav>
             <a href="index.php">Home</a>
             <a href="#footer">Contact</a>
-
-            <button class="start-btn" onclick="window.location.href='adminlogin.php'">Admin</button>
-
-
+            <button class="btn-login" style="width:auto;padding:10px 24px;" onclick="window.location.href='adminlogin.php'">Admin</button>
         </nav>
-
-
-
     </header>
 
     <div class="form">
-
         <div class="login-container">
-
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="login-card">
 
                 <h2>User Login</h2>
+                <p style="color:#94a3b8;font-size:13px;text-align:center;margin-bottom:20px;">Sign in to submit or manage your relief requests</p>
 
                 <div class="mb-3">
                     <label>Email</label>
-                    <input type="email" name="email" class="form-control">
+                    <input type="text" name="email" class="form-control" placeholder="Enter your email">
                 </div>
 
                 <div class="mb-3">
                     <label>Password</label>
-                    <input type="password" name="password" class="form-control">
+                    <input type="password" name="password" class="form-control" placeholder="Enter your password">
                 </div>
+
+                <?php if ($login_error): ?>
+                    <div style="color:#ff4d4d;font-size:13px;margin-bottom:12px;text-align:center;">
+                        <?php echo $login_error; ?>
+                    </div>
+                <?php endif; ?>
 
                 <button type="submit" class="btn-login">Sign In</button>
 
@@ -62,54 +86,11 @@ session_start();
                 </p>
 
             </form>
-
         </div>
-
-
     </div>
 
     <?php include 'footer.php'; ?>
-
     <script src="script.js"></script>
 </body>
 
 </html>
-
-<?php
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-
-    if (empty($email) || empty($password)) {
-        echo "<script>alert('Please fill in all fields.');</script>";
-        exit;
-    } else {
-
-        $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-        $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) == 1) {
-
-            $row = mysqli_fetch_assoc($result);
-
-
-            $_SESSION['user_id'] = $row['id'];
-            $_SESSION['user_name'] = $row['name'];
-            $_SESSION['email'] = $row['email'];
-
-
-            header("Location: userdashboard.php");
-
-            exit;
-        } else {
-            echo "<script>alert('Invalid email or password.');</script>";
-        }
-    }
-
-    mysqli_close($conn);
-}
-?>

@@ -1,9 +1,3 @@
-<?php
-
-include 'database.php';
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,23 +19,13 @@ include 'database.php';
             <a href="index.php">Home</a>
             <a href="#about">About</a>
             <a href="#footer">Contact</a>
-
-            <button class="start-btn" onclick="window.location.href='adminlogin.php'">Admin</button>
-
-
+            <button class="btn-login" style="width:auto;padding:10px 24px;" onclick="window.location.href='adminlogin.php'">Admin Login</button>
         </nav>
-
-
-
     </header>
 
-
     <section class="hero">
-
-        <div class="badge">🔴 Emergency Flood Help and Resources</div>
-
+        <div class="badge"> Emergency Flood Help and Resources</div>
         <h1>
-
             FLOOD RELIEF<br>
             <span>SUPPORT CENTER</span>
         </h1>
@@ -72,75 +56,6 @@ include 'database.php';
                 Our goal is to connect victims, volunteers, and relief organizations in one centralized system to
                 ensure faster response and efficient distribution of resources.
             </p>
-
-            <div class="stats-grid">
-
-                <!-- Registered Users -->
-                <div class="stat-card">
-                    <h5>Total Registered Users</h5>
-
-                    <?php
-                    $sql = "SELECT COUNT(*) AS total_users FROM users";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-                    ?>
-
-                    <h2><?php echo $row['total_users']; ?></h2>
-                </div>
-
-                <!-- Shelter -->
-                <div class="stat-card">
-                    <h5>Accepted Shelter Aids</h5>
-
-                    <?php
-                    $sql = "SELECT COUNT(*) AS house_request FROM requests WHERE type='shelter' AND status='accepted'";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-                    ?>
-
-                    <h2><?php echo $row['house_request']; ?></h2>
-                </div>
-
-                <!-- Water -->
-                <div class="stat-card">
-                    <h5>Completed Water Aids</h5>
-
-                    <?php
-                    $sql = "SELECT COUNT(*) AS water_request FROM requests WHERE type='water' AND status='accepted'";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-                    ?>
-
-                    <h2><?php echo $row['water_request']; ?></h2>
-                </div>
-
-                <!-- Food -->
-                <div class="stat-card">
-                    <h5>Accepted Food Aids</h5>
-
-                    <?php
-                    $sql = "SELECT COUNT(*) AS food_request FROM requests WHERE type='food' AND status='accepted'";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-                    ?>
-
-                    <h2><?php echo $row['food_request']; ?></h2>
-                </div>
-
-                <!-- Medicine -->
-                <div class="stat-card">
-                    <h5>Accepted Medicine Aids</h5>
-
-                    <?php
-                    $sql = "SELECT COUNT(*) AS med_request FROM requests WHERE type='medicine' AND status='accepted'";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-                    ?>
-
-                    <h2><?php echo $row['med_request']; ?></h2>
-                </div>
-
-            </div>
 
         </div>
 
