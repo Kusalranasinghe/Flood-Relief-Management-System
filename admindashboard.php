@@ -25,27 +25,9 @@ if (!isset($_SESSION['admin_id'])) {
 
 <body>
 
-    <!-- TOP NAVBAR -->
-    <div class="admin-topbar">
-        <div class="admin-brand">
-            <span class="logo">#HelpSriLanka</span>
-        </div>
-        <div class="admin-topbar-actions">
-            <a href="requestdashboard.php" class="btn-nav-action btn-nav-white"> Manage Requests</a>
-            <a href="viewusers.php" class="btn-nav-action btn-nav-white"> View Users</a>
-            <a href="logout.php" class="btn-nav-action btn-nav-white-danger"> Logout</a>
-            <div class="admin-profile">
-                <span class="admin-avatar">👤</span>
-                <span class="admin-name">
-                    <?php
-                    $adminRes = mysqli_query($conn, "SELECT * FROM admin WHERE id = '{$_SESSION['admin_id']}'");
-                    $adminRow = mysqli_fetch_assoc($adminRes);
-                    echo isset($adminRow['name']) ? $adminRow['name'] : 'Admin';
-                    ?>
-                </span>
-            </div>
-        </div>
-    </div>
+    <?php
+    include 'admin_topbar.php';
+    ?>
 
     <div class="dashboard-container">
 
@@ -118,21 +100,21 @@ if (!isset($_SESSION['admin_id'])) {
         <div class="section-label"> Pending Requests by District</div>
         <div class="dashboard-section">
             <?php include 'sumlocations.php'; ?>
-            <div class="report-actions">
-                <a href="admindashboard.php" class="btn-back-blue">← Back to Dashboard</a>
-                <a href="sumlocations.php" class="btn-report-link">View Full Report →</a>
+            <div class="report-fade-link">
+                <a href="sumlocations.php">View Full Report →</a>
             </div>
         </div>
 
         <!--SECTION 4: Relief History -->
         <div class="section-label"> Completed Relief History</div>
         <div class="dashboard-section">
-            <?php include 'reliefhistory.php'; ?>
-            <div class="report-actions">
-                <a href="admindashboard.php" class="btn-back-blue">← Back to Dashboard</a>
-                <a href="reliefhistory.php" class="btn-report-link">View Full Report →</a>
-            </div>
+            <?php 
+                include 'reliefhistory.php'; 
+            ?>
+            <div class="report-fade-link">
+                <a href="reliefhistory.php">View Full Report →</a>
         </div>
+    </div>
 
     </div>
 
