@@ -4,8 +4,8 @@
         <div class="footer-col">
             <h2>Flood Relief Center</h2>
             <p>No.77/5, Galle Rd,<br>
-               Mt Lavinia,<br>
-               Sri Lanka.
+                Mt Lavinia,<br>
+                Sri Lanka.
             </p>
         </div>
 
@@ -29,8 +29,8 @@
         <div class="footer-col">
             <h3>Legal</h3>
             <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
+                <li><a href="privacy.php">Privacy Policy</a></li>
+                <li><a href="terms.php">Terms of Service</a></li>
             </ul>
         </div>
 
