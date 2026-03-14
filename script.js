@@ -233,3 +233,59 @@ if (regPassword) {
         }
     });
 }
+
+// ===== UPDATE FORM PHONE VALIDATION =====
+const updatePhone = document.getElementById('update_phone');
+const updatePhoneError = document.getElementById('update_phone_error');
+
+if (updatePhone) {
+    updatePhone.addEventListener('input', function () {
+        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 9);
+        const updatePhoneTick = document.getElementById('update_phone_tick');
+        if (this.value.length === 0) {
+            updatePhoneError.style.display = 'none';
+            updatePhoneTick.style.display = 'none';
+        } else if (this.value.length < 9) {
+            updatePhoneError.textContent = ' Please enter exactly 9 digits.';
+            updatePhoneError.style.display = 'block';
+            updatePhoneTick.style.display = 'none';
+        } else {
+            updatePhoneError.style.display = 'none';
+            updatePhoneTick.style.display = 'block';
+        }
+    });
+
+    updatePhone.addEventListener('keypress', function (e) {
+        const updatePhoneTick = document.getElementById('update_phone_tick');
+        if (!/[0-9]/.test(e.key)) {
+            updatePhoneError.textContent = ' Numbers only. Letters are not allowed.';
+            updatePhoneError.style.display = 'block';
+            e.preventDefault();
+        }
+    });
+}
+
+// ===== UPDATE FORM MEMBERS VALIDATION =====
+const updateMembers = document.getElementById('update_members');
+const updateMembersError = document.getElementById('update_members_error');
+
+if (updateMembers) {
+    updateMembers.addEventListener('input', function () {
+        if (this.value === '') {
+            updateMembersError.textContent = ' This field is required.';
+            updateMembersError.style.display = 'block';
+        } else if (this.value <= 0) {
+            updateMembersError.textContent = ' Must be a positive number greater than 0.';
+            updateMembersError.style.display = 'block';
+        } else {
+            updateMembersError.style.display = 'none';
+        }
+    });
+    updateMembers.addEventListener('keypress', function (e) {
+        if (!/[0-9]/.test(e.key)) {
+            updateMembersError.textContent = ' Numbers only. Letters are not allowed.';
+            updateMembersError.style.display = 'block';
+            e.preventDefault();
+        }
+    });
+}

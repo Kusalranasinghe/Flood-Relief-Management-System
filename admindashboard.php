@@ -108,17 +108,16 @@ if (!isset($_SESSION['admin_id'])) {
         <!--SECTION 4: Relief History -->
         <div class="section-label"> Completed Relief History</div>
         <div class="dashboard-section">
-            <?php 
-                include 'reliefhistory.php'; 
-            ?>
+            <?php include 'reliefhistory.php'; ?>
             <div class="report-fade-link">
                 <a href="reliefhistory.php">View Full Report →</a>
+            </div>
         </div>
-    </div>
 
     </div>
 
     <script src="script.js"></script>
+    
 </body>
 
 </html>
