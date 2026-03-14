@@ -51,7 +51,7 @@ if (!isset($_SESSION['admin_id'])) {
             <div class="stat-card urgent">
                 <h5>⚠️ High Severity Requests</h5>
                 <?php
-                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE LOWER(sev_level) = 'high'");
+                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE sev_level = 'high' AND status = 'pending';");
                 $data = mysqli_fetch_assoc($res);
                 echo "<h2>" . $data['total'] . "</h2>";
                 ?>
@@ -65,7 +65,7 @@ if (!isset($_SESSION['admin_id'])) {
             <div class="stat-card">
                 <h5> Food Requests</h5>
                 <?php
-                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE LOWER(type) = 'food'");
+                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE type = 'food' AND status = 'pending';");
                 $data = mysqli_fetch_assoc($res);
                 echo "<h2>" . $data['total'] . "</h2>";
                 ?>
@@ -73,7 +73,7 @@ if (!isset($_SESSION['admin_id'])) {
             <div class="stat-card">
                 <h5> Water Requests</h5>
                 <?php
-                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE LOWER(type) = 'water'");
+                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE type = 'water' AND status = 'pending';");
                 $data = mysqli_fetch_assoc($res);
                 echo "<h2>" . $data['total'] . "</h2>";
                 ?>
@@ -81,7 +81,7 @@ if (!isset($_SESSION['admin_id'])) {
             <div class="stat-card">
                 <h5> Medicine Requests</h5>
                 <?php
-                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE LOWER(type) = 'medicine'");
+                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE type = 'medicine' AND status = 'pending';");
                 $data = mysqli_fetch_assoc($res);
                 echo "<h2>" . $data['total'] . "</h2>";
                 ?>
@@ -89,7 +89,7 @@ if (!isset($_SESSION['admin_id'])) {
             <div class="stat-card">
                 <h5> Shelter Requests</h5>
                 <?php
-                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE LOWER(type) = 'shelter'");
+                $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE type = 'shelter' AND status = 'pending';");
                 $data = mysqli_fetch_assoc($res);
                 echo "<h2>" . $data['total'] . "</h2>";
                 ?>
