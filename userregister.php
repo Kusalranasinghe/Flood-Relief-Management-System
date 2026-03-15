@@ -18,7 +18,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     if (empty($name) || empty($nic) || empty($address) || empty($telephone) || empty($email) || empty($district) || empty($password)) {
-        echo "<script>alert('All fields are required.');</script>";
+        echo "<script>alert('All fields are required.');
+        window.location.href='userregister.php';
+        </script>";
+        exit;
+
+    }
+
+    if (!preg_match("/^[0-9]{9}[VvXx]$/", $nic) && !preg_match("/^[0-9]{12}$/", $nic)) {
+        echo "<script>alert('Please enter a valid NIC number.');
+        window.location.href='userregister.php';
+        </script>";
+        exit;
+
+    }
+
+    if (!preg_match("/^[0-9]{9}$/", $telephone)) {
+        echo "<script>alert('Please enter a valid telephone number with exactly 9 digits.');
+        window.location.href='userregister.php';
+        </script>";
+        exit;
+
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Please enter a valid email address.');
+            window.location.href='userregister.php';
+            </script>";
+        exit;
+
+    }
+
+    if (strlen($password) < 6) {
+        echo "<script>alert('Password must be at least 6 characters long.');
+                window.location.href='userregister.php';
+                </script>";
         exit;
 
     } else {
@@ -76,8 +110,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="mb-3">
                     <label>NIC Number</label>
                     <div style="position:relative;">
-                        <input type="text" name="nic" class="form-control" placeholder="e.g. 123456789V or 200012345678" id="nic_input">
-                        <span id="nic_tick" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
+                        <input type="text" name="nic" class="form-control" placeholder="e.g. 123456789V or 200012345678"
+                            id="nic_input">
+                        <span id="nic_tick"
+                            style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
                     </div>
                     <small id="nic_error" style="color:#ff4d4d;display:none;"></small>
                 </div>
