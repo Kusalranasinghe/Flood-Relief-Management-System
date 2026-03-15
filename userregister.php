@@ -7,7 +7,6 @@ if (isset($_SESSION['user_id'])) {
     exit;
 }
 
-$reg_error = null;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST['name']);
@@ -18,37 +17,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $district = $_POST['district'];
     $password = $_POST['password'];
 
-    if (empty($name) || empty($nic) || empty($address) || empty($telephone) || empty($district) || empty($password)) {
-        $reg_error = "All fields are required except email.";
-    } elseif (!preg_match('/^([0-9]{9}[VvXx]|[0-9]{12})$/', $nic)) {
-        $reg_error = "NIC must be 9 digits followed by V or X, or 12 digits.";
-    } elseif (!is_numeric($telephone) || strlen($telephone) != 9) {
-        $reg_error = "Contact number must be exactly 9 digits after +94.";
-    } elseif (strlen($password) < 6) {
-        $reg_error = "Password must be at least 6 characters.";
-    } elseif (
-        !empty($email) && (
-            !filter_var($email, FILTER_VALIDATE_EMAIL) ||
-            !preg_match('/@(gmail\.com|yahoo\.com|hotmail\.com|outlook\.com|icloud\.com|live\.com)$/i', $email)
-        )
-    ) {
-        $reg_error = "Please use a valid email (Gmail, Yahoo, Hotmail, Outlook, iCloud or Live).";
+    if (empty($name) || empty($nic) || empty($address) || empty($telephone) || empty($email) || empty($district) || empty($password)) {
+        echo "<script>alert('All fields are required.');</script>";
+        exit;
+
     } else {
-        $checkEmail = mysqli_query($conn, "SELECT id FROM users WHERE email='$email'");
-        if (!empty($email) && mysqli_num_rows($checkEmail) > 0) {
-            $reg_error = "This email is already registered. Please login.";
-        } else {
-            $sql = "INSERT INTO users (name, nic, address, telephone, email, district, password) 
-                VALUES ('$name', '$nic', '$address', '$telephone', '$email', '$district', '$password')";
-            mysqli_query($conn, $sql);
-            echo "<script>
-            alert('Registration successful. Please login.');
-            window.location.href='userlogin.php';
-        </script>";
-            exit;
-        }
+        $sql = "INSERT INTO users (name, nic, address, telephone, email, password) VALUES ('$name', '$nic', '$address', '$telephone', '$email', '$password')";
+
+        mysqli_query($conn, $sql);
+        echo "<script>
+        alert('Registration successful.');
+        window.location.href='userdashboard.php';
+      </script>";
+        exit;
     }
+
     mysqli_close($conn);
+
 }
 ?>
 
@@ -85,26 +70,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="mb-3">
                     <label>Full Name</label>
-                    <input type="text" name="name" class="form-control" placeholder="Enter your full name"
-                        value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>">
+                    <input type="text" name="name" class="form-control" placeholder="Enter your full name">
                 </div>
 
                 <div class="mb-3">
                     <label>NIC Number</label>
                     <div style="position:relative;">
-                        <input type="text" name="nic" class="form-control" placeholder="e.g. 123456789V or 200012345678"
-                            id="nic_input"
-                            value="<?php echo isset($_POST['nic']) ? htmlspecialchars($_POST['nic']) : ''; ?>">
-                        <span id="nic_tick"
-                            style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
+                        <input type="text" name="nic" class="form-control" placeholder="e.g. 123456789V or 200012345678" id="nic_input">
+                        <span id="nic_tick" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
                     </div>
                     <small id="nic_error" style="color:#ff4d4d;display:none;"></small>
                 </div>
 
                 <div class="mb-3">
                     <label>Address</label>
-                    <input type="text" name="address" class="form-control" placeholder="Enter your address"
-                        value="<?php echo isset($_POST['address']) ? htmlspecialchars($_POST['address']) : ''; ?>">
+                    <input type="text" name="address" class="form-control" placeholder="Enter your address">
                 </div>
 
                 <div class="mb-3">
@@ -128,8 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <span class="input-group-text"
                                 style="background:rgba(255,255,255,0.08);border:none;color:white;">+94</span>
                             <input type="text" name="telephone" id="reg_phone_input" class="form-control"
-                                placeholder="7XXXXXXXX" maxlength="9"
-                                value="<?php echo isset($_POST['telephone']) ? htmlspecialchars($_POST['telephone']) : ''; ?>">
+                                placeholder="7XXXXXXXX" maxlength="9">
                         </div>
                         <span id="reg_phone_tick"
                             style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
@@ -142,8 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label>Email <span style="color:#94a3b8;font-size:12px;">(optional)</span></label>
                     <div style="position:relative;">
                         <input type="text" name="email" id="reg_email" class="form-control"
-                            placeholder="e.g. example@gmail.com"
-                            value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
+                            placeholder="e.g. example@gmail.com">
                         <span id="email_tick"
                             style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
                     </div>
@@ -162,12 +140,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <small id="reg_password_error" style="color:#ff4d4d;display:none;"> Password must be at least 6
                         characters.</small>
                 </div>
-
-                <?php if ($reg_error): ?>
-                    <div style="color:#ff4d4d;font-size:13px;margin-bottom:12px;text-align:center;">
-                        <?php echo $reg_error; ?>
-                    </div>
-                <?php endif; ?>
 
                 <button type="submit" class="btn-register">Create Account</button>
 

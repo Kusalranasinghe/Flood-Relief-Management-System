@@ -12,9 +12,8 @@
 
 <body class="has-video">
 
-    <!-- VIDEO BACKGROUND -->
     <div class="video-bg-wrapper">
-        <video autoplay muted loop playsinline class="video-bg" style="filter: blur(4px);">
+        <video autoplay muted loop playsinline class="video-bg" style="filter: blur(6px);">
             <source src="flood.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>

@@ -24,7 +24,6 @@ $user_id = $_SESSION['user_id'];
 
 <body>
 
-    <!-- NAVBAR -->
     <header class="navbar" style="padding:20px;padding-left:80px;padding-right:80px;">
         <div class="logo">#HelpSriLanka</div>
         <nav>
@@ -40,11 +39,11 @@ $user_id = $_SESSION['user_id'];
             <p>Manage your flood relief requests below</p>
         </div>
 
-        <!-- Stats -->
         <?php
         $totalReq = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS c FROM requests WHERE user_id='$user_id'"))['c'];
         $pendingReq = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS c FROM requests WHERE user_id='$user_id' AND status='pending'"))['c'];
         $acceptedReq = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS c FROM requests WHERE user_id='$user_id' AND status='accepted'"))['c'];
+        $rejectedReq = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS c FROM requests WHERE user_id='$user_id' AND status='rejected'"))['c'];
         ?>
         <div class="stats-grid-4" style="margin-bottom:30px;">
             <div class="stat-card">
@@ -61,9 +60,6 @@ $user_id = $_SESSION['user_id'];
             </div>
             <div class="stat-card">
                 <h5>Rejected</h5>
-                <?php
-                $rejectedReq = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS c FROM requests WHERE user_id='$user_id' AND status='rejected'"))['c'];
-                ?>
                 <h2 style="color:#ef4444;"><?php echo $rejectedReq; ?></h2>
             </div>
         </div>

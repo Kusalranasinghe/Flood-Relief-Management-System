@@ -101,8 +101,8 @@ $isStandalone = !defined('INCLUDED');
                         $counter = 1;
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo "<tr>";
-                            echo "<td>" . $counter++ . "</td>";
-                            echo "<td>" . ucfirst($row['type']) . "</td>";
+                            echo "<td>" . $row['v_id']. "</td>";
+                            echo "<td>" . $row['type'] . "</td>";
                             echo "<td>" . $row['name'] . "</td>";
                             echo "<td>" . $row['nic'] . "</td>";
                             echo "<td>+94" . $row['telephone'] . "</td>";

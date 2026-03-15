@@ -69,14 +69,12 @@ if ($isStandalone):
 
             <!-- Search -->
             <div class="mb-3 no-print">
-                <input type="text" id="districtSearch" class="form-control"
-                    placeholder="🔍 Search by district..."
+                <input type="text" id="districtSearch" class="form-control" placeholder="🔍 Search by district..."
                     style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:white;border-radius:10px;padding:10px 16px;">
             </div>
 
         <?php endif; ?>
 
-        <!-- Table -->
         <table class="custom-table w-100" id="locationTable">
             <thead>
                 <tr>
@@ -112,8 +110,7 @@ if ($isStandalone):
                         SELECT type, COUNT(*) AS cnt 
                         FROM requests 
                         WHERE district = '$dist' AND status = 'pending'
-                        GROUP BY type ORDER BY cnt DESC LIMIT 1
-                    ");
+                        GROUP BY type ORDER BY cnt DESC LIMIT 1");
                         $typeRow = mysqli_fetch_assoc($typeRes);
                         $mostNeeded = $typeRow ? ucfirst($typeRow['type']) : 'N/A';
                         $highColor = $row['high_sev'] > 0 ? 'style="color:#ef4444;font-weight:bold"' : 'style="color:#22c55e"';
@@ -157,4 +154,6 @@ if ($isStandalone):
     </body>
 
     </html>
-<?php endif; ?>
+<?php endif; 
+
+?>
