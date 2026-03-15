@@ -66,7 +66,7 @@ include 'database.php';
                     </div>
                     <span id="reg_phone_tick" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
                 </div>
-                <small id="reg_phone_error" style="color:#ff4d4d;display:none;">⚠️ Please enter exactly 9 digits.</small>
+                <small id="reg_phone_error" style="color:#ff4d4d;display:none;">Please enter exactly 9 digits.</small>
             </div>
 
 
@@ -97,16 +97,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 }
-if (!is_numeric($telephone)) {
-    echo "<script>alert('Telephone must be numeric.');</script>";
-    exit;
-} else {
-    $sql = "INSERT INTO volunteers (type,name,nic, telephone) VALUES ('$type', '$name', '$nic', '$telephone')";
-
-    if (!is_numeric($telephone)) {
-        echo "<script>alert('Telephone must be numeric.');</script>";
-        exit;
-    }
 
     $sql = "INSERT INTO volunteers (type,name,nic, telephone) 
             VALUES ('$type', '$name', '$nic', '$telephone')";
@@ -119,5 +109,5 @@ if (!is_numeric($telephone)) {
     </script>";
 
     mysqli_close($conn);
-}
+
 ?>
