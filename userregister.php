@@ -26,10 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $reg_error = "Contact number must be exactly 9 digits after +94.";
     } elseif (strlen($password) < 6) {
         $reg_error = "Password must be at least 6 characters.";
-    } elseif (!empty($email) && (
-        !filter_var($email, FILTER_VALIDATE_EMAIL) ||
-        !preg_match('/@(gmail\.com|yahoo\.com|hotmail\.com|outlook\.com|icloud\.com|live\.com)$/i', $email)
-    )) {
+    } elseif (
+        !empty($email) && (
+            !filter_var($email, FILTER_VALIDATE_EMAIL) ||
+            !preg_match('/@(gmail\.com|yahoo\.com|hotmail\.com|outlook\.com|icloud\.com|live\.com)$/i', $email)
+        )
+    ) {
         $reg_error = "Please use a valid email (Gmail, Yahoo, Hotmail, Outlook, iCloud or Live).";
     } else {
         $checkEmail = mysqli_query($conn, "SELECT id FROM users WHERE email='$email'");
@@ -46,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     }
-    sqli_close($conn);
+    mysqli_close($conn);
 }
 ?>
 
@@ -68,7 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <nav>
             <a href="index.php">Home</a>
             <a href="#footer">Contact</a>
-            <button class="btn-login" style="width:auto;padding:10px 24px;" onclick="window.location.href='adminlogin.php'">Admin</button>
+            <button class="btn-login" style="width:auto;padding:10px 24px;"
+                onclick="window.location.href='adminlogin.php'">Admin</button>
         </nav>
     </header>
 
@@ -77,7 +80,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="register-card">
 
                 <h2>User Registration</h2>
-                <p style="color:#94a3b8;font-size:13px;text-align:center;margin-bottom:20px;">Create your account to submit flood relief requests</p>
+                <p style="color:#94a3b8;font-size:13px;text-align:center;margin-bottom:20px;">Create your account to
+                    submit flood relief requests</p>
 
                 <div class="mb-3">
                     <label>Full Name</label>
@@ -91,7 +95,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="text" name="nic" class="form-control" placeholder="e.g. 123456789V or 200012345678"
                             id="nic_input"
                             value="<?php echo isset($_POST['nic']) ? htmlspecialchars($_POST['nic']) : ''; ?>">
-                        <span id="nic_tick" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
+                        <span id="nic_tick"
+                            style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
                     </div>
                     <small id="nic_error" style="color:#ff4d4d;display:none;"></small>
                 </div>
@@ -120,33 +125,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label>Contact Number</label>
                     <div style="position:relative;">
                         <div class="input-group">
-                            <span class="input-group-text" style="background:rgba(255,255,255,0.08);border:none;color:white;">+94</span>
+                            <span class="input-group-text"
+                                style="background:rgba(255,255,255,0.08);border:none;color:white;">+94</span>
                             <input type="text" name="telephone" id="reg_phone_input" class="form-control"
                                 placeholder="7XXXXXXXX" maxlength="9"
                                 value="<?php echo isset($_POST['telephone']) ? htmlspecialchars($_POST['telephone']) : ''; ?>">
                         </div>
-                        <span id="reg_phone_tick" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
+                        <span id="reg_phone_tick"
+                            style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
                     </div>
-                    <small id="reg_phone_error" style="color:#ff4d4d;display:none;"> Please enter exactly 9 digits.</small>
+                    <small id="reg_phone_error" style="color:#ff4d4d;display:none;"> Please enter exactly 9
+                        digits.</small>
                 </div>
 
                 <div class="mb-3">
                     <label>Email <span style="color:#94a3b8;font-size:12px;">(optional)</span></label>
                     <div style="position:relative;">
-                        <input type="text" name="email" id="reg_email" class="form-control" placeholder="e.g. example@gmail.com"
+                        <input type="text" name="email" id="reg_email" class="form-control"
+                            placeholder="e.g. example@gmail.com"
                             value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
-                        <span id="email_tick" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
+                        <span id="email_tick"
+                            style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
                     </div>
-                    <small id="reg_email_error" style="color:#ff4d4d;display:none;"> Please enter a valid email address.</small>
+                    <small id="reg_email_error" style="color:#ff4d4d;display:none;"> Please enter a valid email
+                        address.</small>
                 </div>
 
                 <div class="mb-3">
                     <label>Password</label>
                     <div style="position:relative;">
-                        <input type="password" name="password" id="reg_password" class="form-control" placeholder="Create a password">
-                        <span id="password_tick" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
+                        <input type="password" name="password" id="reg_password" class="form-control"
+                            placeholder="Create a password">
+                        <span id="password_tick"
+                            style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
                     </div>
-                    <small id="reg_password_error" style="color:#ff4d4d;display:none;"> Password must be at least 6 characters.</small>
+                    <small id="reg_password_error" style="color:#ff4d4d;display:none;"> Password must be at least 6
+                        characters.</small>
                 </div>
 
                 <?php if ($reg_error): ?>

@@ -18,6 +18,7 @@ $adminName = isset($adminRow['name']) ? $adminRow['name'] : 'Administrator';
     </div>
     <div class="admin-topbar-actions">
         <a href="admindashboard.php" class="btn-nav-action btn-nav-white"> Dashboard</a>
+        <a href="viewvolunteers.php" class="btn-nav-action btn-nav-white"> Volunteers</a>
         <a href="requestdashboard.php" class="btn-nav-action btn-nav-white">
              Requests
             <?php if ($pendingCount > 0): ?>

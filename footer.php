@@ -22,7 +22,7 @@
             <ul>
                 <li><a href="https://www.cdc.gov/floods/safety/floodwater-after-a-disaster-or-emergency-safety.html">Safety Guidelines</a></li>
                 <li><a href="https://www.dmc.gov.lk/index.php?lang=en">Relief Centers</a></li>
-                <li><a href="https://www.redcross.org.lk/volunteer">Volunteer</a></li>
+                <li><a href="volunteerreg.php">Volunteer</a></li>
             </ul>
         </div>
 
