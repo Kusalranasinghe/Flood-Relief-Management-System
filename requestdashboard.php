@@ -35,15 +35,14 @@ session_start();
             <h2><?php echo $totalPending; ?></h2>
         </div>
         <div class="stat-card urgent">
-            <h5>🚨 High Severity Pending</h5>
+            <h5> High Severity Pending</h5>
             <h2><?php echo $highPending; ?></h2>
         </div>
     </div>
 
-    <div class="section-label">📋 Pending Requests
-        <span style="font-size:12px;color:#94a3b8;font-weight:normal;text-transform:none;letter-spacing:0;margin-left:10px;">Click any row to review and take action</span>
-    </div>
-    <div class="dashboard-section">
+        <div class="section-label"> User List</div>
+        <p style="font-size:14px;color:#94a3b8;margin-bottom:14px;margin-top:6px;padding-left:4px;">Click any row to view full details</p>
+        <div class="dashboard-section">
 
         <div class="mb-3">
             <input type="text" id="requestSearch" class="form-control"
