@@ -1046,3 +1046,16 @@ body.has-video {
 .report-fade-link a:hover {
     color: rgba(150, 213, 228, 0.7);
 }
+
+/* ===== FADED BACK BUTTON HOVER ===== */
+.faded-back-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.faded-back-link:hover {
+    color: #93c5fd;
+}

@@ -70,10 +70,7 @@ if (!isset($_SESSION['user_id'])) {
 
             <div class="mb-3">
                 <label>Telephone</label>
-                <div class="input-group">
-                    <span class="input-group-text" style="background:rgba(255,255,255,0.08);border:none;color:white;">+94</span>
-                    <input type="number" name="telephone" id="phone_input" class="form-control" placeholder="7XXXXXXXX" maxlength="9" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,9)">
-                </div>
+                <input type="text" name="telephone" id="phone_input" class="form-control" placeholder="e.g. 0778767787">
                 <small id="phone_error" style="color:#ff4d4d;display:none;">Please enter exactly 9 digits.</small>
             </div>
 
@@ -103,7 +100,9 @@ if (!isset($_SESSION['user_id'])) {
             </div>
 
             <button type="submit" class="btn-request">Send Request</button>
-            <a href="userdashboard.php" style="display:block;text-align:center;margin-top:12px;color:#f97316;font-size:14px;">← Back to Dashboard</a>
+            <div style="text-align:center;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);">
+                <a href="userdashboard.php" class="faded-back-link">← Back to Dashboard</a>
+            </div>
         </form>
 
     </div>
