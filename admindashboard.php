@@ -31,13 +31,11 @@ if (!isset($_SESSION['admin_id'])) {
 
     <div class="dashboard-container">
 
-        <!-- Header -->
         <div class="dashboard-header">
             <h2>Admin Management Portal</h2>
             <p>System Overview & Live Statistics</p>
         </div>
 
-        <!-- SECTION 1: Overview Cards -->
         <div class="section-label"> System Summary</div>
         <div class="stats-grid-2">
             <div class="stat-card">
@@ -49,7 +47,7 @@ if (!isset($_SESSION['admin_id'])) {
                 ?>
             </div>
             <div class="stat-card urgent">
-                <h5>⚠️ High Severity Requests</h5>
+                <h5> High Severity Requests</h5>
                 <?php
                 $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE sev_level = 'high' AND status = 'pending';");
                 $data = mysqli_fetch_assoc($res);
@@ -59,7 +57,6 @@ if (!isset($_SESSION['admin_id'])) {
             </div>
         </div>
 
-        <!-- SECTION 2: Request Type Cards -->
         <div class="section-label"> Relief Requests by Type</div>
         <div class="stats-grid-4">
             <div class="stat-card">
@@ -96,7 +93,6 @@ if (!isset($_SESSION['admin_id'])) {
             </div>
         </div>
 
-        <!-- SECTION 3: Location Summary -->
         <div class="section-label"> Pending Requests by District</div>
         <div class="dashboard-section">
             <?php include 'sumlocations.php'; ?>
@@ -105,7 +101,6 @@ if (!isset($_SESSION['admin_id'])) {
             </div>
         </div>
 
-        <!--SECTION 4: Relief History -->
         <div class="section-label"> Completed Relief History</div>
         <div class="dashboard-section">
             <?php include 'reliefhistory.php'; ?>
@@ -117,7 +112,7 @@ if (!isset($_SESSION['admin_id'])) {
     </div>
 
     <script src="script.js"></script>
-    
+
 </body>
 
 </html>
