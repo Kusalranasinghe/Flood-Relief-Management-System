@@ -78,25 +78,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    }
-    if (!is_numeric($telephone) ) {
+    if (!is_numeric($telephone)) {
         echo "<script>alert('Telephone must be numeric.');</script>";
         exit;
     }
 
+    $sql = "INSERT INTO volunteers (type,name,nic, telephone) 
+            VALUES ('$type', '$name', '$nic', '$telephone')";
 
+    mysqli_query($conn, $sql);
 
-     else {
-        $sql = "INSERT INTO volunteers (type,name,nic, telephone) VALUES ('$type', '$name', '$nic', '$telephone')";
+    echo "<script>
+        alert('Your volunteer registration has been submitted successfully.');
+        window.location.href='userdashboard.php';
+    </script>";
 
-        mysqli_query($conn, $sql);
-        echo "<script>
-    alert('Your volunteer registration has been submitted successfully.');
-    window.location.href='userdashboard.php';
-</script>";
-
-        mysqli_close($conn);
-    }
-
-
+    mysqli_close($conn);
+}
 ?>

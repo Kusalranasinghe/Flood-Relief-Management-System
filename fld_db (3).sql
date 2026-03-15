@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Mar 14, 2026 at 10:50 AM
--- Server version: 8.4.3
--- PHP Version: 8.3.30
+-- Host: 127.0.0.1
+-- Generation Time: Mar 15, 2026 at 10:28 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id` int NOT NULL,
-  `email` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(20) COLLATE utf8mb4_general_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -50,9 +50,9 @@ INSERT INTO `admin` (`id`, `email`, `password`) VALUES
 --
 
 CREATE TABLE `districts` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `districts`
@@ -92,10 +92,10 @@ INSERT INTO `districts` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `ds_divisions` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `district_name` varchar(50) NOT NULL,
   `ds_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `ds_divisions`
@@ -445,21 +445,21 @@ INSERT INTO `ds_divisions` (`id`, `district_name`, `ds_name`) VALUES
 --
 
 CREATE TABLE `requests` (
-  `id` int NOT NULL,
-  `type` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `district` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `ds_div` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `gn_div` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `name` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `telephone` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `no_of_fmembers` int NOT NULL,
-  `sev_level` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `req_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id` int(11) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `district` varchar(20) NOT NULL,
+  `ds_div` varchar(20) NOT NULL,
+  `gn_div` varchar(20) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `telephone` varchar(20) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `no_of_fmembers` int(11) NOT NULL,
+  `sev_level` varchar(20) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `req_date` datetime NOT NULL DEFAULT current_timestamp(),
   `act_date` date DEFAULT NULL,
-  `user_id` int NOT NULL,
-  `status` varchar(20) COLLATE utf8mb4_general_ci NOT NULL
+  `user_id` int(11) NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -498,15 +498,15 @@ INSERT INTO `requests` (`id`, `type`, `district`, `ds_div`, `gn_div`, `name`, `t
 --
 
 CREATE TABLE `users` (
-  `id` int NOT NULL,
-  `name` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
-  `nic` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `telephone` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `district` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `nic` varchar(20) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telephone` varchar(15) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `district` varchar(20) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -524,6 +524,27 @@ INSERT INTO `users` (`id`, `name`, `nic`, `email`, `telephone`, `address`, `dist
 (9, 'Kusal D Ranasinghe', '201831811106', 'p@gmail.com', '0778767787', 'kalutara', 'kalutara', '111', '2026-02-06 00:00:00'),
 (10, 'Imesha', '120125', 'imesha@gmail.com', '23687', 'sbadkj', 'sdjf', '123', '2026-03-13 16:37:57'),
 (11, 'dfdf', '454454545454', 'fgfchghgjhjbhjbhjk@gmail.comm', '757878787', 'fg', 'Ampara', '123456', '2026-03-14 15:29:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `volunteers`
+--
+
+CREATE TABLE `volunteers` (
+  `v_id` int(11) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `nic` varchar(20) NOT NULL,
+  `telephone` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `volunteers`
+--
+
+INSERT INTO `volunteers` (`v_id`, `type`, `name`, `nic`, `telephone`) VALUES
+(1, 'food', 'Kusal D Ranasinghe', '201831811106', 778767789);
 
 --
 -- Indexes for dumped tables
@@ -560,6 +581,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `volunteers`
+--
+ALTER TABLE `volunteers`
+  ADD PRIMARY KEY (`v_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -567,31 +594,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `districts`
 --
 ALTER TABLE `districts`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `ds_divisions`
 --
 ALTER TABLE `ds_divisions`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=336;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=336;
 
 --
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `volunteers`
+--
+ALTER TABLE `volunteers`
+  MODIFY `v_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
