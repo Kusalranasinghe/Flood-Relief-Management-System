@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2026 at 10:28 AM
+-- Generation Time: Mar 16, 2026 at 02:21 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -467,29 +467,29 @@ CREATE TABLE `requests` (
 --
 
 INSERT INTO `requests` (`id`, `type`, `district`, `ds_div`, `gn_div`, `name`, `telephone`, `address`, `no_of_fmembers`, `sev_level`, `description`, `req_date`, `act_date`, `user_id`, `status`) VALUES
-(2, 'medicine', 'kalutara', 'dodangoda', '800-d', 'disal', '222', 'kalutara', 10, 'high', 'test2', '2026-01-23 00:00:00', NULL, 0, 'accepted'),
-(3, 'food', 'colombo', 'rathmalana', '800-d', 'tharusha', '07899999999', 'kalutara', 10, 'medium', 'test3', '2026-01-23 00:00:00', NULL, 0, ''),
-(4, 'shelter', 'colombo', 'rathmalana', '800-d', 'disal', '07899999999', 'kalutara', 20, 'low', 'test', '2026-01-23 00:00:00', NULL, 0, ''),
-(5, 'shelter', 'colombo', 'rathmalana', '800-d', 'disal', '07899999999', 'kalutara', 20, 'low', 'test', '2026-01-23 00:00:00', NULL, 0, ''),
-(10, 'medical', 'kalutara', 'nagoda', '800-d', 'disal', '0778767787', 'galle', 10, 'High', 'test1', '2026-01-24 00:00:00', NULL, 1, ''),
-(11, 'shelter', 'kalutara', 'nagoda', '800-d', 'nimal', '0345434543', 'matara', 10, 'Medium', 'test1', '2026-01-24 00:00:00', NULL, 1, ''),
-(12, 'food', 'kandy', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'kalutara', 10, 'high', 'test1', '2026-02-06 00:00:00', NULL, 2, 'accepted'),
-(13, 'food', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0787996831', 'matara', 10, 'low', 'test1', '2026-02-06 00:00:00', NULL, 2, 'accepted'),
-(14, 'food', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0778767787', 'kalutara', 10, 'low', 'test1', '2026-02-06 00:00:00', NULL, 9, 'accepted'),
-(15, 'food', 'Gampaha', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'jjj', 10, 'High', 'test1', '2026-02-06 00:00:00', NULL, 9, 'accepted'),
 (16, 'food', 'galle', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'galle', 10, 'low', 'test1', '2026-02-06 00:00:00', '2026-03-11', 2, 'accepted'),
-(17, 'food', 'kalutara', 'nagoda', '800-d', 'maleesa', '0787996831', 'colombo', 10, 'medium', 'test1', '2026-02-20 00:00:00', NULL, 7, 'pending'),
-(18, 'food', 'colombo', 'rathmalana', '800-d', 'disal', '07899999999', 'kalutara', 4, 'Low', 'test2', '2026-03-08 00:00:00', NULL, 9, 'accepted'),
-(19, 'medicine', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'colombo', 10, 'medium', 'test', '2026-03-09 00:00:00', NULL, 9, 'pending'),
-(20, 'shelter', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0787996831', 'colombo', 7, 'high', 'test', '2026-03-09 00:00:00', NULL, 9, 'accepted'),
-(21, 'water', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0778767787', 'colombo', 10, 'high', 'tst', '2026-03-11 00:00:00', NULL, 9, 'accepted'),
+(19, 'medicine', 'kalutara', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0345434543', 'colombo', 10, 'medium', 'test', '2026-03-09 00:00:00', '2026-03-16', 9, 'rejected'),
 (22, 'food', 'kandy', 'nagoda', '800-d', 'Kusal D Ranasinghe', '0778767787', 'kalutara', 10, 'low', 'tst', '2026-03-11 00:00:00', '2026-03-11', 9, 'accepted'),
-(23, 'food', 'Gampaha', 'Katana', 'abcdef', 'silva', '788552244', 'No.01, Main Streat, Gampaha', 3, 'low', '', '2026-03-13 15:44:19', NULL, 9, 'pending'),
-(24, 'food', 'Gampaha', 'Attanagalla', 'sdf', 'imesha', '788555788', 'hghjgjhhjj', 3, 'low', '', '2026-03-13 15:46:38', NULL, 9, 'pending'),
-(25, 'medicine', 'Hambantota', 'Tangalle', 'hghjjn', 'ddffggh', '895524444', 'dfdf', 4, 'low', '', '2026-03-13 15:48:18', NULL, 9, 'pending'),
-(26, 'food', 'Matara', 'Thihagoda', 'abcd', 'iMESHA', '575425788', 'dsfjhslfk', 5, 'Low', '', '2026-03-13 16:39:29', NULL, 10, 'pending'),
-(27, 'food', 'Hambantota', 'Walasmulla', 'sfdfs', 'sdfsdgf', '765435453', 'sdfsdfsdfds', 2, 'high', '', '2026-03-13 18:57:21', NULL, 10, 'pending'),
-(28, 'shelter', 'Matale', 'Matale', 'gn div test', 'tharushi perera', '786221122', 'no 03, matale', 3, 'medium', '', '2026-03-14 14:17:55', NULL, 10, 'pending');
+(29, 'food', 'Gampaha', 'Mirigama', '800-d', 'Kaveesha Pathirathna', '076978965', 'Panawala , Danowita , Gampaha', 4, 'medium', '', '2026-03-16 01:24:14', '2026-03-16', 13, 'accepted'),
+(30, 'food', 'Gampaha', 'Mirigama', '800-d', 'Kaveesha Pathirathna', '077876778', 'Panawala , Danowita , Gampaha', 4, 'high', '', '2026-03-16 01:26:42', '2026-03-16', 13, 'accepted'),
+(31, 'shelter', 'Galle', 'Akmeemana', 'Bope Poddala', 'Sasiru putha', '076345677', 'galle', 4, 'high', '', '2026-03-16 01:34:45', '2026-03-16', 14, 'accepted'),
+(32, 'food', 'Kalutara', 'Dodangoda', '800-d', 'Kusal Ranasinghe', '078799683', '\"Kusum Sewana\" Kajuduwawatta , Dodangoda', 5, 'high', '', '2026-03-16 15:49:57', '2026-03-16', 17, 'accepted'),
+(33, 'medicine', 'Kalutara', 'Dodangoda', '800-d', 'Kusal Ranasinghe', '078799683', '\"Kusum Sewana\" Kajuduwawatta , Dodangoda', 5, 'medium', '', '2026-03-16 16:00:55', NULL, 17, 'pending'),
+(34, 'food', 'Colombo', 'Dehiwala', 'Rathmalana', 'Wasanthi Ranasinghe', '034543454', 'No 75 , Rathmalana , colombo', 6, 'high', '', '2026-03-16 16:03:07', '2026-03-16', 17, 'accepted'),
+(35, 'food', 'Galle', 'Ambalangoda', 'Aluthwala', 'Imesha Ruwangi', '071234567', 'Aluthwala , Ambalangoda', 4, 'low', '', '2026-03-16 16:08:35', '2026-03-16', 18, 'rejected'),
+(36, 'water', 'Galle', 'Ambalangoda', 'Aluthwala', 'Imesha Ruwangi', '077876778', 'Aluthwala , Ambalangoda', 4, 'medium', '', '2026-03-16 16:09:39', '2026-03-16', 18, 'accepted'),
+(37, 'shelter', 'Galle', 'Bentota', 'Benthara', 'Maleesha Dilshan', '034543454', 'New road , Benthara', 5, 'high', '', '2026-03-16 16:16:22', '2026-03-16', 19, 'accepted'),
+(38, 'medicine', 'Colombo', 'Sri Jayawardanapura ', '710-B', 'Santhushi Fernando', '078799683', 'No.34 , Old Road , Rajagiriya ', 5, 'medium', '', '2026-03-16 16:17:59', NULL, 19, 'pending'),
+(39, 'food', 'Kalutara', 'Mathugama', 'Wattewa', 'Irushi Theshala', '078799683', 'No.40 , Ovitigala ,Mathugama', 5, 'high', '', '2026-03-16 16:21:36', NULL, 17, 'pending'),
+(40, 'food', 'Colombo', 'Padukka', '710-B', 'Kusal D Ranasinghe', '098765432', 'Panawala , Danowita , Gampaha', 8, 'low', '', '2026-03-16 16:22:38', '2026-03-16', 17, 'rejected'),
+(41, 'water', 'Hambantota', 'Tangalle', 'Ranna', 'Tharindi Koshila', '078999999', 'No.70 , Ranna , Tangalle', 4, 'high', '', '2026-03-16 17:04:15', NULL, 20, 'pending'),
+(42, 'shelter', 'Anuradhapura', 'Thalawa', 'thalawa', 'Tharindi Koshila', '078999999', 'No.70 , Ranna , Tangalle', 4, 'high', '', '2026-03-16 17:05:17', NULL, 20, 'pending'),
+(43, 'food', 'Hambantota', 'Tangalle', 'Ranna', 'Tharindi Koshila', '078999999', 'No.70 , Ranna , Tangalle', 4, 'medium', '', '2026-03-16 17:05:59', NULL, 20, 'pending'),
+(44, 'medicine', 'Gampaha', 'Minuwangoda', 'Yatiyana', 'Sathmi Adhikari', '761680700', '47/D/25,Yatiyana,Minnuwangoda', 5, 'low', '', '2026-03-16 17:54:37', NULL, 22, 'pending'),
+(45, 'water', 'Kandy', 'Yatinuwara', '98-B', 'Imesh Basnayake', '713763404', '88/C,Yatinuwara,Kandy', 3, 'low', '', '2026-03-16 17:58:43', NULL, 22, 'pending'),
+(46, 'shelter', 'Badulla', 'Uva Paranagama', '73', 'Jinadi Fernando', '769532584', '65/5,Uva paranagama,Badulla', 6, 'high', '', '2026-03-16 18:00:08', NULL, 22, 'pending'),
+(47, 'food', 'Gampaha', 'Attanagalla', '710-B', 'Imesh basnayake', '077876778', 'No.92 , Wathuragama', 3, 'high', '', '2026-03-16 18:03:19', NULL, 23, 'pending'),
+(48, 'medicine', 'Kalutara', 'Dodangoda', '800-d', 'Kusal D Ranasinghe', '078799683', '\"Kusum Sewana\" Kajuduwawatta , Dodangoda', 6, 'high', '', '2026-03-16 18:18:28', NULL, 17, 'pending');
 
 -- --------------------------------------------------------
 
@@ -514,16 +514,16 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `nic`, `email`, `telephone`, `address`, `district`, `password`, `created_date`) VALUES
-(1, 'kusal', '2222', 'd', 'wswdw', 'ws', 'ss', 'ss', '2026-01-14 00:00:00'),
-(3, 'disal', '1111', 'kusal@gmail.com', '07899999999', 'kalutara', '', '111', '2026-01-23 00:00:00'),
-(4, 'disal', '1111', 'kusal@gmail.com', '07899999999', 'kalutara', '', '111', '2026-01-23 00:00:00'),
-(5, 'dasun', '1111', 'kusal@gmail.com', '07899999999', 'kalutara', '', '111', '2026-01-23 00:00:00'),
-(6, 'dinul', '201831811106', 'd@gmail.com', '0987654321', 'kalutara', '', '111', '2026-02-03 00:00:00'),
-(7, 'maleesa', '201831811106', 'm@gmail.com', '0787996831', 'matara', '', '123', '2026-02-03 00:00:00'),
+(6, 'dinul', '201831811106', 'd@gmail.com', '0987654321', 'kalutara', 'Kalutara', '111', '2026-02-03 00:00:00'),
 (8, 'sadun', '201831811106', 's@gmail.com', '0778767787', 'kandy', 'kandy', 'sss', '2026-02-05 00:00:00'),
-(9, 'Kusal D Ranasinghe', '201831811106', 'p@gmail.com', '0778767787', 'kalutara', 'kalutara', '111', '2026-02-06 00:00:00'),
-(10, 'Imesha', '120125', 'imesha@gmail.com', '23687', 'sbadkj', 'sdjf', '123', '2026-03-13 16:37:57'),
-(11, 'dfdf', '454454545454', 'fgfchghgjhjbhjbhjk@gmail.comm', '757878787', 'fg', 'Ampara', '123456', '2026-03-14 15:29:43');
+(16, 'Maleesha dilshan', '200412345670', 'st@gmail.com', '098765432', 'galle', 'Galle', 'santusii111', '2026-03-16 03:19:03'),
+(17, 'Kusal D Ranasinghe', '200331811106', 'kusal@gmail.com', '787996831', '\"Kusum Sewana\" Kajuduwawatta , Dodangoda', 'Kalutara', 'kusal123', '2026-03-16 15:48:35'),
+(18, 'Imesha Ruwangi', '200283101538', 'imesha1@gmail.com', '712345678', 'Aluthwala , Ambalangoda', 'Galle', 'imesha123', '2026-03-16 16:07:04'),
+(19, 'Maleesha dilshan', '200334810753', 'dila@gmail.com', '784799683', 'No.73 , Benthara , Galle', 'Galle', 'santhushi2207', '2026-03-16 16:12:21'),
+(20, 'Tharindi Koshila', '200312343212', 'tharindi@gmail.com', '786731234', 'No.70 , Ranna , Tangalle', 'Hambantota', 'tharindi123', '2026-03-16 17:02:49'),
+(21, 'Himaya Perera', '200257571039', 'himaya@gmail.com', '771166633', 'No.116/2,Udugampola,Gampaha.', 'Gampaha', 'maya@123', '2026-03-16 17:18:56'),
+(22, 'Sathmi Adhikari', '200264501545', 'sathmi@gmail.com', '761680700', '47/D/25,Yatiyana,Minnuwangoda', 'Gampaha', 'sathmi133', '2026-03-16 17:49:40'),
+(23, 'Imesh Basnayake', '200332112332', 'bassa@gmail.com', '768766787', 'No.92 , Wathuragama', 'Gampaha', 'bassa123', '2026-03-16 18:01:56');
 
 -- --------------------------------------------------------
 
@@ -544,7 +544,8 @@ CREATE TABLE `volunteers` (
 --
 
 INSERT INTO `volunteers` (`v_id`, `type`, `name`, `nic`, `telephone`) VALUES
-(1, 'food', 'Kusal D Ranasinghe', '201831811106', 778767789);
+(1, 'food', 'Kusal D Ranasinghe', '201831811106', 778767789),
+(6, 'medicine', 'dasun', '200412345678', 34543454);
 
 --
 -- Indexes for dumped tables
@@ -612,19 +613,19 @@ ALTER TABLE `ds_divisions`
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `volunteers`
 --
 ALTER TABLE `volunteers`
-  MODIFY `v_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `v_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
