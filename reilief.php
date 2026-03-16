@@ -71,7 +71,6 @@ if (!isset($_SESSION['user_id'])) {
             <div class="mb-3">
                 <label>Telephone</label>
                 <input type="text" name="telephone" id="phone_input" class="form-control" placeholder="e.g. 0778767787">
-                <small id="phone_error" style="color:#ff4d4d;display:none;">Please enter exactly 9 digits.</small>
             </div>
 
             <div class="mb-3">

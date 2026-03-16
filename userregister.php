@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $district = $_POST['district'];
     $password = $_POST['password'];
 
-    if (empty($name) || empty($nic) || empty($address) || empty($telephone) || empty($email) || empty($district) || empty($password)) {
+    if (empty($name) || empty($nic) || empty($address) || empty($telephone) || empty($district) || empty($password)) {
         echo "<script>alert('All fields are required.');
         window.location.href='userregister.php';
         </script>";
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
 
     } else {
-        $sql = "INSERT INTO users (name, nic, address, telephone, email, password) VALUES ('$name', '$nic', '$address', '$telephone', '$email', '$password')";
+        $sql = "INSERT INTO users (name, nic, address, telephone, district, email, password) VALUES ('$name', '$nic', '$address', '$telephone', '$district', '$email', '$password')";
 
         mysqli_query($conn, $sql);
         echo "<script>

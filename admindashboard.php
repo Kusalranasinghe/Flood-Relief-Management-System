@@ -46,7 +46,7 @@ if (!isset($_SESSION['admin_id'])) {
                 echo "<h2>" . $data['total'] . "</h2>";
                 ?>
             </div>
-            <div class="stat-card urgent">
+            <div class="stat-card urgent" >
                 <h5> High Severity Requests</h5>
                 <?php
                 $res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE sev_level = 'high' AND status = 'pending';");
