@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telephone = trim($_POST['telephone']);
     $email = trim($_POST['email']);
     $district = $_POST['district'];
-    $password = $_POST['password'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     if (empty($name) || empty($nic) || empty($address) || empty($telephone) || empty($district) || empty($password)) {
         echo "<script>alert('All fields are required.');

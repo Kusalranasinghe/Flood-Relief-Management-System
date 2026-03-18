@@ -16,23 +16,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($nic) || empty($password)) {
         $login_error = "Please fill in all fields.";
     } else {
-        $sql = "SELECT * FROM users WHERE nic='$nic' AND password='$password'";
+
+        // Get user by NIC ONLY
+        $sql = "SELECT * FROM users WHERE nic='$nic'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_assoc($result);
-            $_SESSION['user_id'] = $row['id'];
-            $_SESSION['user_name'] = $row['name'];
-            $_SESSION['nic'] = $row['nic'];
-            header("Location: userdashboard.php");
-            exit;
+
+            // Verify hashed password
+            if (password_verify($password, $row['password'])) {
+
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['user_name'] = $row['name'];
+                $_SESSION['nic'] = $row['nic'];
+
+                header("Location: userdashboard.php");
+                exit;
+
+            } else {
+                $login_error = "Invalid NIC or password. Please try again.";
+            }
+
         } else {
             $login_error = "Invalid NIC or password. Please try again.";
         }
     }
 }
-mysqli_close($conn);
 
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2026 at 02:21 PM
+-- Generation Time: Mar 18, 2026 at 09:39 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -489,7 +489,8 @@ INSERT INTO `requests` (`id`, `type`, `district`, `ds_div`, `gn_div`, `name`, `t
 (45, 'water', 'Kandy', 'Yatinuwara', '98-B', 'Imesh Basnayake', '713763404', '88/C,Yatinuwara,Kandy', 3, 'low', '', '2026-03-16 17:58:43', NULL, 22, 'pending'),
 (46, 'shelter', 'Badulla', 'Uva Paranagama', '73', 'Jinadi Fernando', '769532584', '65/5,Uva paranagama,Badulla', 6, 'high', '', '2026-03-16 18:00:08', NULL, 22, 'pending'),
 (47, 'food', 'Gampaha', 'Attanagalla', '710-B', 'Imesh basnayake', '077876778', 'No.92 , Wathuragama', 3, 'high', '', '2026-03-16 18:03:19', NULL, 23, 'pending'),
-(48, 'medicine', 'Kalutara', 'Dodangoda', '800-d', 'Kusal D Ranasinghe', '078799683', '\"Kusum Sewana\" Kajuduwawatta , Dodangoda', 6, 'high', '', '2026-03-16 18:18:28', NULL, 17, 'pending');
+(48, 'medicine', 'Kalutara', 'Dodangoda', '800-d', 'Kusal D Ranasinghe', '078799683', '\"Kusum Sewana\" Kajuduwawatta , Dodangoda', 6, 'high', '', '2026-03-16 18:18:28', NULL, 17, 'pending'),
+(49, 'shelter', 'Kalutara', 'Dodangoda', '800-d', 'Kusal dhananjaya', '078799683', '\"Kusum Sewana\" Kajuduwawatta , Dodangoda', 5, 'high', '', '2026-03-17 17:21:25', '2026-03-17', 17, 'accepted');
 
 -- --------------------------------------------------------
 
@@ -523,7 +524,10 @@ INSERT INTO `users` (`id`, `name`, `nic`, `email`, `telephone`, `address`, `dist
 (20, 'Tharindi Koshila', '200312343212', 'tharindi@gmail.com', '786731234', 'No.70 , Ranna , Tangalle', 'Hambantota', 'tharindi123', '2026-03-16 17:02:49'),
 (21, 'Himaya Perera', '200257571039', 'himaya@gmail.com', '771166633', 'No.116/2,Udugampola,Gampaha.', 'Gampaha', 'maya@123', '2026-03-16 17:18:56'),
 (22, 'Sathmi Adhikari', '200264501545', 'sathmi@gmail.com', '761680700', '47/D/25,Yatiyana,Minnuwangoda', 'Gampaha', 'sathmi133', '2026-03-16 17:49:40'),
-(23, 'Imesh Basnayake', '200332112332', 'bassa@gmail.com', '768766787', 'No.92 , Wathuragama', 'Gampaha', 'bassa123', '2026-03-16 18:01:56');
+(23, 'Imesh Basnayake', '200332112332', 'bassa@gmail.com', '768766787', 'No.92 , Wathuragama', 'Gampaha', 'bassa123', '2026-03-16 18:01:56'),
+(24, 'Prarthana Devindi', '200412222222', 'prarthana@gmail.com', '777777777', 'Thilakapura , Ambalangoda', 'Galle', 'prarthana', '2026-03-17 17:19:04'),
+(25, 'Himansith Wickramasinghe', '200400000000', 'cucccu@gmail.com', '777777777', 'No.19 , Panadura', 'Kalutara', '$2y$10$yo1URi86kSBY6d.mT89tJ.FHoULQeN.QMsO7.c0kUhNJUQhOI3wTu', '2026-03-18 13:55:48'),
+(26, 'Methmi Ashinsana', '200300000000', 'methmi@gmail.com', '771876778', 'Elpitiya ,Galle', 'Galle', '$2y$10$GgdNQhEGnmb3MT5BO0UdDe66cHdiOEsYolBEQtdYLJNEfXHfNEPxm', '2026-03-18 14:04:39');
 
 -- --------------------------------------------------------
 
@@ -613,13 +617,13 @@ ALTER TABLE `ds_divisions`
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `volunteers`
