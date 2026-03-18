@@ -5,8 +5,6 @@ include 'database.php';
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,7 +78,7 @@ include 'database.php';
             <button type="submit" class="btn-request">Register</button>
             <div
                 style="text-align:center;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);">
-                <a href="userdashboard.php" class="faded-back-link">← Back to Dashboard</a>
+                <a href="index.php" class="faded-back-link">← Back to Dashboard</a>
             </div>
         </form>
 
