@@ -22,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         window.location.href='userregister.php';
         </script>";
         exit;
-
     }
 
     if (!preg_match("/^[0-9]{9}[VvXx]$/", $nic) && !preg_match("/^[0-9]{12}$/", $nic)) {
@@ -30,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         window.location.href='userregister.php';
         </script>";
         exit;
-
     }
 
     if (!preg_match("/^[0-9]{9}$/", $telephone)) {
@@ -38,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         window.location.href='userregister.php';
         </script>";
         exit;
-
     }
 
     if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -53,7 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 window.location.href='userregister.php';
                 </script>";
         exit;
-
     } else {
         $sql = "INSERT INTO users (name, nic, address, telephone, district, email, password) VALUES ('$name', '$nic', '$address', '$telephone', '$district', '$email', '$password')";
 
@@ -66,7 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     mysqli_close($conn);
-
 }
 ?>
 
@@ -168,9 +163,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label>Password</label>
                     <div style="position:relative;">
                         <input type="password" name="password" id="reg_password" class="form-control"
-                            placeholder="Create a password">
+                            placeholder="Create a password" style="padding-right:70px;">
                         <span id="password_tick"
-                            style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
+                            style="position:absolute;right:36px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
+                        <span id="toggleRegPassword"
+                            style="position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;color:#94a3b8;font-size:16px;">👁</span>
                     </div>
                     <small id="reg_password_error" style="color:#ff4d4d;display:none;"> Password must be at least 6
                         characters.</small>
