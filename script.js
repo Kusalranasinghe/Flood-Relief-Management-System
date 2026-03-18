@@ -234,7 +234,7 @@ if (regPassword) {
     });
 }
 
-// ===== UPDATE FORM PHONE VALIDATION =====
+
 const updatePhone = document.getElementById('update_phone');
 const updatePhoneError = document.getElementById('update_phone_error');
 
@@ -265,7 +265,6 @@ if (updatePhone) {
     });
 }
 
-// ===== UPDATE FORM MEMBERS VALIDATION =====
 const updateMembers = document.getElementById('update_members');
 const updateMembersError = document.getElementById('update_members_error');
 
@@ -290,94 +289,17 @@ if (updateMembers) {
     });
 }
 
-// ===== VOLUNTEER NIC VALIDATION =====
-const volNicInput = document.getElementById('vol_nic_input');
-const volNicError = document.getElementById('vol_nic_error');
-
-if (volNicInput) {
-    volNicInput.addEventListener('input', function () {
-        let val = this.value;
-        const tenthCharIsLetter = val.length >= 10 && /[VvXx]/.test(val[9]);
-        const allDigits = /^[0-9]+$/.test(val);
-
-        if (tenthCharIsLetter) {
-            this.value = val.slice(0, 10);
-            val = this.value;
-        } else if (allDigits) {
-            this.value = val.slice(0, 12);
-            val = this.value;
+//password eye
+const toggleRegPassword = document.getElementById('toggleRegPassword');
+if (toggleRegPassword) {
+    toggleRegPassword.addEventListener('click', function () {
+        const input = document.getElementById('reg_password');
+        if (input.type === 'password') {
+            input.type = 'text';
+            this.textContent = '👁';
         } else {
-            this.value = val.replace(/[^0-9VvXx]/g, '');
-            val = this.value;
-        }
-
-        const nicPattern = /^([0-9]{9}[VvXx]|[0-9]{12})$/;
-        const volNicTick = document.getElementById('vol_nic_tick');
-
-        if (val.length === 0) {
-            volNicError.style.display = 'none';
-            volNicTick.style.display = 'none';
-        } else if (nicPattern.test(val)) {
-            volNicError.style.display = 'none';
-            volNicTick.style.display = 'block';
-        } else {
-            volNicError.textContent = 'Enter a valid NIC. (Ex: 123456789V or 200012345678)';
-            volNicError.style.color = '#ff4d4d';
-            volNicError.style.display = 'block';
-            volNicTick.style.display = 'none';
-        }
-    });
-
-    volNicInput.addEventListener('keypress', function (e) {
-        const val = this.value;
-        const key = e.key;
-        if (/[VvXx]/.test(key)) {
-            if (val.length !== 9 || !/^[0-9]{9}$/.test(val)) {
-                e.preventDefault();
-            }
-            return;
-        }
-        if (!/[0-9]/.test(key)) {
-            volNicError.textContent = 'Enter a valid NIC. (Ex: 123456789V or 200012345678)';
-            volNicError.style.color = '#ff4d4d';
-            volNicError.style.display = 'block';
-            e.preventDefault();
-            return;
-        }
-        const tenthIsLetter = val.length >= 10 && /[VvXx]/.test(val[9]);
-        const maxLen = tenthIsLetter ? 10 : 12;
-        if (val.length >= maxLen) {
-            e.preventDefault();
-        }
-    });
-}
-
-// ===== VOLUNTEER PHONE VALIDATION =====
-const volPhoneInput = document.getElementById('vol_phone_input');
-const volPhoneError = document.getElementById('vol_phone_error');
-
-if (volPhoneInput) {
-    volPhoneInput.addEventListener('input', function () {
-        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 9);
-        const volPhoneTick = document.getElementById('vol_phone_tick');
-        if (this.value.length === 0) {
-            volPhoneError.style.display = 'none';
-            volPhoneTick.style.display = 'none';
-        } else if (this.value.length < 9) {
-            volPhoneError.textContent = '⚠️ Please enter exactly 9 digits.';
-            volPhoneError.style.display = 'block';
-            volPhoneTick.style.display = 'none';
-        } else {
-            volPhoneError.style.display = 'none';
-            volPhoneTick.style.display = 'block';
-        }
-    });
-
-    volPhoneInput.addEventListener('keypress', function (e) {
-        if (!/[0-9]/.test(e.key)) {
-            volPhoneError.textContent = '⚠️ Numbers only. Letters are not allowed.';
-            volPhoneError.style.display = 'block';
-            e.preventDefault();
+            input.type = 'password';
+            this.textContent = '👁';
         }
     });
 }
