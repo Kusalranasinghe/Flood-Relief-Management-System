@@ -36,8 +36,8 @@
             <span>SUPPORT CENTER</span>
         </h1>
         <p>
-            Digital platform supporting flood affected people by
-            coordinating relief services, information, and emergency assistance
+            Digital platform supporting flood affected people in Sri Lanka.
+            Sign in or register to submit your flood relief request and get help fast.
         </p>
         <div class="buttons">
             <button class="primary" onclick="window.location.href='userlogin.php'">SIGN IN</button>

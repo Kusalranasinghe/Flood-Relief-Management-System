@@ -69,9 +69,20 @@ if (!isset($_SESSION['user_id'])) {
             </div>
 
             <div class="mb-3">
-                <label>Telephone</label>
-                <input type="text" name="telephone" id="phone_input" class="form-control" placeholder="e.g. 0778767787">
-            </div>
+                    <label>Contact Number</label>
+                    <div style="position:relative;">
+                        <div class="input-group">
+                            <span class="input-group-text"
+                                style="background:rgba(255,255,255,0.08);border:none;color:white;">+94</span>
+                            <input type="text" name="telephone" id="reg_phone_input" class="form-control"
+                                placeholder="7XXXXXXXX" maxlength="9">
+                        </div>
+                        <span id="reg_phone_tick"
+                            style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#22c55e;font-size:16px;display:none;">✓</span>
+                    </div>
+                    <small id="reg_phone_error" style="color:#ff4d4d;display:none;"> Please enter exactly 9
+                        digits.</small>
+                </div>
 
             <div class="mb-3">
                 <label>Address</label>

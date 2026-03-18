@@ -41,12 +41,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     }
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "<script>alert('Please enter a valid email address.');
-            window.location.href='userregister.php';
-            </script>";
+    if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Please enter a valid email address or leave it empty.');
+        window.location.href='userregister.php';
+        </script>";
         exit;
-
     }
 
     if (strlen($password) < 6) {
