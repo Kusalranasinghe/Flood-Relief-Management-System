@@ -47,7 +47,7 @@ if ($isStandalone):
                 </div>
             </div>
 
-            <!--Summary Cards-->
+            
             <div class="report-meta-grid">
                 <div class="report-meta-card">
                     <span class="report-meta-label">Total Pending Requests</span>
@@ -67,7 +67,7 @@ if ($isStandalone):
                 </div>
             </div>
 
-            <!-- Search -->
+            
             <div class="mb-3 no-print">
                 <input type="text" id="districtSearch" class="form-control" placeholder="🔍 Search by district..."
                     style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:white;border-radius:10px;padding:10px 16px;">

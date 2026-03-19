@@ -17,14 +17,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $login_error = "Please fill in all fields.";
     } else {
 
-        // Get user by NIC ONLY
+        
         $sql = "SELECT * FROM users WHERE nic='$nic'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_assoc($result);
 
-            // Verify hashed password
+            
             if (password_verify($password, $row['password'])) {
 
                 $_SESSION['user_id'] = $row['id'];

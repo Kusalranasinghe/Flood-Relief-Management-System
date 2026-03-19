@@ -121,7 +121,7 @@ session_start();
         </div>
     </div>
 
-    <!-- REQUEST DETAIL MODAL -->
+    
     <div id="requestModal"
         style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;justify-content:center;align-items:center;">
         <div
@@ -135,7 +135,7 @@ session_start();
             <div id="requestModalContent"
                 style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:25px;"></div>
 
-            <!-- Description -->
+            
             <div style="margin-bottom:25px;">
                 <div
                     style="color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">
@@ -145,7 +145,7 @@ session_start();
                 </div>
             </div>
 
-            <!-- Action Buttons -->
+            
             <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
                 <button onclick="closeRequestModal()" class="btn-back-blue"
                     style="cursor:pointer;border:none;">Cancel</button>

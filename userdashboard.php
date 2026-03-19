@@ -133,7 +133,7 @@ $user_id = $_SESSION['user_id'];
     <?php include 'footer.php'; ?>
     <script src="script.js"></script>
 
-    <!-- REQUEST DETAIL MODAL -->
+    
     <div id="userRequestModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;justify-content:center;align-items:center;">
         <div style="background:#0f172a;border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:40px;width:480px;max-width:90%;box-shadow:0 0 40px rgba(0,0,0,0.5);position:relative;">
 
@@ -181,7 +181,7 @@ $user_id = $_SESSION['user_id'];
                 </div>
             `;
 
-                // Show update/delete only for pending
+                
                 if (d.pending === 'true') {
                     document.getElementById('userModalActions').innerHTML = `
                     <button onclick="closeUserModal()" style="background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);padding:8px 18px;border-radius:8px;cursor:pointer;">Cancel</button>

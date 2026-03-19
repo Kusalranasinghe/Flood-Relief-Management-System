@@ -21,6 +21,16 @@ if (!isset($_SESSION['user_id'])) {
 
 <body>
 
+    <header class="navbar">
+        <div class="logo">#HelpSriLanka</div>
+        <nav>
+            <a href="index.php">Home</a>
+            <a href="#about">About</a>
+            <a href="#footer">Contact</a>
+            <button class="btn-login" style="width:auto;padding:10px 24px;" onclick="window.location.href='adminlogin.php'">Admin Login</button>
+        </nav>
+    </header>
+
     <div class="request-container">
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="request-card">
@@ -116,6 +126,7 @@ if (!isset($_SESSION['user_id'])) {
         </form>
 
     </div>
+    <?php include 'footer.php'; ?>
     <script src="script.js"></script>
 </body>
 

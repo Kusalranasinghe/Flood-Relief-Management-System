@@ -104,18 +104,18 @@ $latestUser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT name, created_date 
         </div>
     </div>
 
-    <!-- USER DETAIL MODAL -->
+
     <div id="userModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;justify-content:center;align-items:center;">
         <div style="background:#0f172a;border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:40px;width:500px;max-width:90%;box-shadow:0 0 40px rgba(0,0,0,0.5);position:relative;">
 
-            <!-- Close button -->
+        
             <button onclick="closeModal()" style="position:absolute;top:15px;right:20px;background:transparent;border:none;color:#94a3b8;font-size:20px;cursor:pointer;">✕</button>
 
             <h3 style="color:#f97316;margin-bottom:20px;font-size:20px;"> User Details</h3>
 
             <div id="modalContent" style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:30px;"></div>
 
-            <!-- Delete Warning -->
+            
             <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:16px;margin-bottom:20px;">
                 <p style="color:#fca5a5;font-size:13px;margin:0;font-weight:600;">⚠️ Warning: Deleting a user is permanent and cannot be undone. All associated data will be lost.</p>
             </div>
@@ -134,7 +134,7 @@ $latestUser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT name, created_date 
 
     <script src="script.js"></script>
     <script>
-        // Search
+        
         document.getElementById('userSearch').addEventListener('keyup', function() {
             const filter = this.value.toLowerCase();
             document.querySelectorAll('#userTable tbody tr').forEach(row => {
@@ -142,7 +142,7 @@ $latestUser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT name, created_date 
             });
         });
 
-        // Row click - open modal
+        
         document.querySelectorAll('.user-row').forEach(row => {
             row.addEventListener('mouseenter', function() {
                 this.style.background = 'rgba(249,115,22,0.05)';
@@ -192,7 +192,7 @@ $latestUser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT name, created_date 
             document.getElementById('userModal').style.display = 'none';
         }
 
-        // Close on outside click
+        
         document.getElementById('userModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });

@@ -11,7 +11,6 @@ body {
   min-height: 100vh;
 }
 
-/*video background*/
 .video-bg-wrapper {
   position: fixed;
   top: 0;
@@ -44,12 +43,10 @@ body {
   );
 }
 
-/* pages with video need transparent body */
 body.has-video {
   background: transparent;
 }
 
-/*nav bar*/
 .navbar {
   position: fixed;
   top: 20px;
@@ -105,7 +102,6 @@ body.has-video {
   font-size: 17px;
 }
 
-/*nav bar-admin*/
 .admin-topbar {
   position: fixed;
   top: 0;
@@ -176,7 +172,6 @@ body.has-video {
   white-space: nowrap;
 }
 
-/*nav bar buttons*/
 .btn-nav-action {
   display: flex;
   align-items: center;
@@ -216,7 +211,6 @@ body.has-video {
   transform: translateY(-1px);
 }
 
-/*hero part*/
 .hero {
   text-align: center;
   padding: 200px 20px 120px;
@@ -287,7 +281,6 @@ body.has-video {
   font-size: 17px;
 }
 
-/*section divider*/
 .section-divider {
   width: 70%;
   height: 2px;
@@ -296,7 +289,6 @@ body.has-video {
   box-shadow: 0 0 10px #f97316;
 }
 
-/*section-about*/
 #about {
   padding: 80px 10%;
   color: white;
@@ -320,7 +312,6 @@ body.has-video {
   margin-bottom: 50px;
 }
 
-/*footer styling*/
 .footer {
   padding: 40px 60px;
   position: relative;
@@ -392,7 +383,6 @@ body.has-video {
   text-align: left;
 }
 
-/*stat cards*/
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -450,7 +440,6 @@ body.has-video {
   color: #ef4444 !important;
 }
 
-/*section labels*/
 .section-label {
   font-size: 13px;
   font-weight: 700;
@@ -561,7 +550,6 @@ body.has-video {
   text-decoration: underline;
 }
 
-/*registration*/
 .form1 {
   min-height: 100vh;
   display: flex;
@@ -715,7 +703,6 @@ body.has-video {
   box-shadow: 1px 1px 5px #f97316;
 }
 
-/*dashboard*/
 .dashboard-container {
   max-width: 1400px;
   margin: auto;
@@ -764,7 +751,6 @@ body.has-video {
   gap: 20px;
 }
 
-/*tables*/
 .table-card {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(15px);
@@ -809,7 +795,6 @@ body.has-video {
   text-decoration: none;
 }
 
-/*buttons*/
 .btn-delete,
 .btn-frequest,
 .start-btn {
@@ -887,7 +872,6 @@ body.has-video {
   color: white;
 }
 
-/*report action*/
 .report-actions {
   display: flex;
   justify-content: space-between;
@@ -897,7 +881,6 @@ body.has-video {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/*report page*/
 .report-header-block {
   display: flex;
   justify-content: space-between;
@@ -984,13 +967,11 @@ body.has-video {
   color: #475569;
 }
 
-/*placeholde colour*/
 ::placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
 }
 
 
-/*request dashboard action buttons*/
 .btn-action-accept {
     display: inline-block !important;
     padding: 5px 14px !important;
@@ -1027,7 +1008,6 @@ body.has-video {
     color: #ef4444 !important;
 }
 
-/* ===== FADED VIEW FULL REPORT LINK ===== */
 .report-fade-link {
     text-align: center;
     margin-top: 16px;
@@ -1047,7 +1027,6 @@ body.has-video {
     color: rgba(150, 213, 228, 0.7);
 }
 
-/* ===== FADED BACK BUTTON HOVER ===== */
 .faded-back-link {
     color: rgba(255, 255, 255, 0.85);
     font-size: 15px;

@@ -185,7 +185,7 @@ if (isset($_POST['update'])) {
     <script src="script.js"></script>
 
     <script>
-        // Pre-load DS divisions for current district on page load
+        
         window.addEventListener('load', function() {
             const district = document.getElementById('update_district').value;
             if (district) {
@@ -196,7 +196,7 @@ if (isset($_POST['update'])) {
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState == 4 && xhr.status == 200) {
                         document.getElementById('ds_select').innerHTML = xhr.responseText;
-                        // Re-select the current DS division
+                        
                         const options = document.getElementById('ds_select').options;
                         for (let i = 0; i < options.length; i++) {
                             if (options[i].value === currentDs) {
