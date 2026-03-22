@@ -1,44 +1,54 @@
-# Flood Reilief Management System
-Createing flood reilief management system using html, css, javascript, php and mysql 
-<img width="1835" height="2524" alt="image" src="https://github.com/user-attachments/assets/f975b1ad-522a-49b1-89f7-0e570a20fe48" />
-<img width="1835" height="1371" alt="image" src="https://github.com/user-attachments/assets/48bb5129-0339-4fae-b4b3-9cc0032ecb85" />
-<img width="1853" height="914" alt="image" src="https://github.com/user-attachments/assets/cf22547e-954f-4b16-a7cc-2cd25b99e4fa" />
-<img width="1835" height="1371" alt="image" src="https://github.com/user-attachments/assets/2db50c6a-0593-4527-a2f8-638db59e6470" />
-<img width="1835" height="1809" alt="image" src="https://github.com/user-attachments/assets/182702af-7459-486f-9d1d-594204654a94" />
-<img width="1853" height="914" alt="image" src="https://github.com/user-attachments/assets/5bcb7d3d-d252-47bc-948a-7488d37c5745" />
+# 🌊 Flood Relief Management System
+<img width="1853" height="914" alt="index" src="https://github.com/user-attachments/assets/ff06bcd4-0dbe-418f-9049-8a838869dcc3" />
+<img width="1853" height="914" alt="index2" src="https://github.com/user-attachments/assets/e6548f46-a709-4de8-a334-2bcad605aaf8" />
 
 
+# 👥 User Side
+
+# 📝 User Registration
+<img width="1835" height="1839" alt="usr reg" src="https://github.com/user-attachments/assets/b4f27e37-8b50-4cd7-9578-2010bcf94bee" />
+
+# 🔒 Client-Side Input Validation
+<img width="1835" height="1970" alt="Opera Snapshot_2026-03-19_125415_localhost" src="https://github.com/user-attachments/assets/58d23630-34cb-4cd9-906a-5af4333e0abb" />
+
+# 👤 User Login
+<img width="1835" height="1496" alt="usr login" src="https://github.com/user-attachments/assets/21671a7f-69b7-4e21-91c5-061224dda9c7" />
 
 
+# 🏠 User Dashboard
+<img width="1835" height="1793" alt="usr dshboard" src="https://github.com/user-attachments/assets/8a49fc92-e053-441a-b85a-8bd5df099872" />
 
-<img width="1853" height="914" alt="Opera Snapshot_2026-02-06_151346_localhost" src="https://github.com/user-attachments/assets/417440f9-b90b-4e41-90f8-9aac51fa47ba" />
+# 📩 Request Submission
+<img width="1835" height="1446" alt="usr new req" src="https://github.com/user-attachments/assets/eb4b55d9-a930-4553-a0ee-3761d7074d6c" />
 
-# User End
-<img width="1853" height="914" alt="Opera Snapshot_2026-02-06_151408_localhost" src="https://github.com/user-attachments/assets/718f2d0d-f480-4f01-b540-3714c3e19da3" />
-
-<img width="1835" height="925" alt="Opera Snapshot_2026-02-06_151444_localhost" src="https://github.com/user-attachments/assets/a016d615-87f7-42a1-a748-e01748eb4ca6" />
-
-<img width="1853" height="914" alt="Opera Snapshot_2026-02-06_151512_localhost" src="https://github.com/user-attachments/assets/87dde346-481c-42fc-8d64-629956c69b18" />
-
-<img width="1835" height="1275" alt="Opera Snapshot_2026-02-06_151524_localhost" src="https://github.com/user-attachments/assets/10a4a4ee-01d7-4b8d-92e1-1e085574452b" />
-
-<img width="1853" height="914" alt="Opera Snapshot_2026-02-06_151544_localhost" src="https://github.com/user-attachments/assets/98ec9dbf-451d-437e-8d2b-12627220b9de" />
-
-# Admin End
-
-<img width="1853" height="914" alt="Opera Snapshot_2026-02-06_151609_localhost" src="https://github.com/user-attachments/assets/4a7b0023-2849-4c7f-9120-79e162285a04" />
-
-<img width="1868" height="895" alt="Opera Snapshot_2026-02-06_151629_localhost" src="https://github.com/user-attachments/assets/e917222c-7577-4d44-aaa1-fc94aaa7ee2a" />
-
-<img width="1853" height="914" alt="Opera Snapshot_2026-02-06_151644_localhost" src="https://github.com/user-attachments/assets/3a59ebe8-5804-4385-aa4d-a401612878a0" />
-
-<img width="1853" height="914" alt="Opera Snapshot_2026-02-06_151657_localhost" src="https://github.com/user-attachments/assets/75d8cd8f-0dd7-4440-a419-8cc3d094c827" />
-
-<img width="1853" height="914" alt="Opera Snapshot_2026-02-06_151711_localhost" src="https://github.com/user-attachments/assets/89f57912-8dbb-4637-b8e1-2163f79a708b" />
-
-<img width="1853" height="914" alt="Opera Snapshot_2026-02-06_151727_localhost" src="https://github.com/user-attachments/assets/d00c79d2-3083-46e4-8f5c-a0fc89d3a826" />
-
-<img width="1853" height="914" alt="Opera Snapshot_2026-02-06_151835_localhost" src="https://github.com/user-attachments/assets/7ae49f64-5785-4622-b936-7369229d617b" />
+# 📜 My Requests Status
+<img width="1835" height="1793" alt="usr  req details" src="https://github.com/user-attachments/assets/a04c10d1-3c2d-4249-9fd4-9b7ebe43da89" />
+<img width="1835" height="2150" alt="usr req updte" src="https://github.com/user-attachments/assets/4e087826-684d-4e69-84bf-b27407d1d0c4" />
 
 
+# 🧑‍💼 Admin Side
+
+# 🔑 Admin Login
+<img width="1835" height="1466" alt="admin login" src="https://github.com/user-attachments/assets/1057e473-ef1c-4da0-9b75-7ed54d375995" />
+
+# 🛠️ Admin Dashboard
+<img width="1835" height="2724" alt="admin dashboard" src="https://github.com/user-attachments/assets/91c4d1d1-7d3a-461c-923e-2cbab831fc1d" />
+
+# 📊 Manage Requests
+<img width="1835" height="1584" alt="admin req dashboard" src="https://github.com/user-attachments/assets/31fce9a5-5fc0-439b-bde7-20b2376a1e12" />
+<img width="1835" height="1584" alt="admin req accept or reject" src="https://github.com/user-attachments/assets/8d062e27-4d1a-4006-9852-ca030f017ee9" />
+
+# 🚨 High Risk Alerts
+<img width="1853" height="914" alt="admin high sel lvl reqs" src="https://github.com/user-attachments/assets/b4a0bd2a-0a7f-43e4-88bf-67bf9384b353" />
+
+# 👥 User Management
+<img width="1835" height="1095" alt="admin view users" src="https://github.com/user-attachments/assets/3b888aa3-af45-4908-bbc8-593bd761fdef" />
+
+# 👥 View Volunteer
+<img width="1835" height="1045" alt="admin view vol" src="https://github.com/user-attachments/assets/e1180f22-0aa0-4de4-bbb5-1b034afd7783" />
+
+# Volunteer Registration
+<img width="1835" height="1076" alt="volunteer reg" src="https://github.com/user-attachments/assets/cbe4caef-7d1a-4767-948a-f0a141873be1" />
+
+#  Basic Structure of the System
 ![IMG_7661](https://github.com/user-attachments/assets/486b2cd4-bcf0-4de9-a7c9-9c10d4df2309)
