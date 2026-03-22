@@ -5,7 +5,7 @@
 
 # 👥 User Side
 
-# 📝 User Registration
+ 📝 User Registration
 <img width="1835" height="1839" alt="usr reg" src="https://github.com/user-attachments/assets/b4f27e37-8b50-4cd7-9578-2010bcf94bee" />
 
 # 🔒 Client-Side Input Validation
